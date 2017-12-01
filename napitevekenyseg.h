@@ -18,6 +18,7 @@ public:
     bool datumEllenoriz(int p_ev, int p_honap, int p_nap);
     string getDatum();
     void tevekenysegKiir();
+    string tevekenysegMent();
 };
 
 #endif // NAPITEVEKENYSEG_H

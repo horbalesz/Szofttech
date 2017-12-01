@@ -1,13 +1,12 @@
 #ifndef ORAREND_H
 #define ORAREND_H
-#include "tag.h"
-#include "ora.h"
-#include "idbox.h"
-#include <sstream>
-using namespace std;
+//#include "tag.h"
 
-class Ora;
-class Tag;
+#include <sstream>
+
+#include "ora.h"
+
+using namespace std;
 
 class Orarend
 {
@@ -21,9 +20,10 @@ public:
     void felirOrara(int id);
     void leirOrarol(int id);
     int getEdzoId() const;
-    void setEdzoId(int value);
     int orakSzama();
+    void setEdzoId(int value);
     void oraBetoltes(Ora* o);
+    vector<Ora *> &getOra();
 };
 
 #endif // ORAREND_H

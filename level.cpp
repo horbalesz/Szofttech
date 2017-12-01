@@ -2,11 +2,24 @@
 
 using namespace std;
 
-Level::Level(int kuldo, int cimzett, string p_uzenet):
+string Level::getUzenet() const
+{
+    return uzenet;
+}
+
+Level::Level(int kuldo, int cimzett, const string &p_uzenet):
+    kuldoID(kuldo),
+    cimzettID(cimzett),
+    levelID(IdBox::getInstance().giveId()),
+    uzenet(p_uzenet),
+    olvasott(false)
+{}
+
+Level::Level(int kuldo, int cimzett, const string &p_uzenet, bool p_olvasott):
     kuldoID(kuldo),
     cimzettID(cimzett),
     uzenet(p_uzenet),
-    olvasott(false)
+    olvasott(p_olvasott)
 {}
 
 int Level::getKuldoID() {

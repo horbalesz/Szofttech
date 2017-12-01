@@ -38,5 +38,10 @@ string NapiTevekenyseg::getDatum() {
 void NapiTevekenyseg::tevekenysegKiir() {
     cout << "Datum: " << getDatum() << endl;
     cout << "Sport: " << getSport() << endl;
-    cout << "Idotartam" << getIdotartam() << endl;
+    cout << "Idotartam: " << getIdotartam() << endl;
+}
+
+string NapiTevekenyseg::tevekenysegMent()
+{
+    return to_string(ev) + " " + to_string(honap) + " " + to_string(nap) + " " + to_string(idotartam) + " " + to_string(suly) + " " + sport + "\n";
 }

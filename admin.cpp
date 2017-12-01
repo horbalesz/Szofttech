@@ -2,46 +2,41 @@
 
 Admin::Admin(int jelszo):
     Felhasznalo(jelszo)
-{
-
-}
+{}
 
 Admin::Admin(int id, int jelszo):
     Felhasznalo(id, jelszo)
-{
+{}
 
-}
-
-void Admin::menu()
-{
+void Admin::menu() {
         cout << "1 - Edzok regisztralasa" << endl;
         cout << "2 - Statisztikak lekerdezese" << endl;
+        cout << "3 - Level kuldese" << endl;
+        cout << "4 - Olvasatlan levelek olvasasa" << endl;
+        cout << "5 - Osszes level olvasasa" << endl;
         cout << "x - Kilepes" << endl;
         cout << "Valassz: ";
 }
 
-void Admin::edzoRegisztralasa(vector<Felhasznalo*> &felhasznalok)
-{
+void Admin::edzoRegisztralasa(vector<Felhasznalo*> &felhasznalok) {
     cout << "Az uj edzo jelszava: ";
     int jelszo;
     cin >> jelszo;
-
     felhasznalok.push_back(new Edzo(jelszo));
 }
 
-void Admin::statisztikakLekerdezese(const vector<Orarend*> &edzesek, const vector<Felhasznalo *> &felhasznalok)
-{
+void Admin::statisztikakLekerdezese(const vector<Orarend*> &edzesek, const vector<Felhasznalo *> &felhasznalok) {
     int tagCounter=0, edzoCounter=0;
 
     for(auto i : felhasznalok) {
-        if(i->getType() == "tag")
+        if(i->getType() == 3)
             tagCounter++;
-        else if(i->getType() == "edzo")
+        else if(i->getType() == 2)
             edzoCounter++;
     }
 
-    cout << "Regisztrált tagok száma: " << tagCounter << endl;
-    cout << "Regisztrált edzők száma: " << edzoCounter << endl;
+    cout << "Regisztralt tagok szama: " << tagCounter << endl;
+    cout << "Regisztralt edzok szama: " << edzoCounter << endl;
 
     int oraCounter=0;
     for(auto i : edzesek) {
@@ -51,7 +46,6 @@ void Admin::statisztikakLekerdezese(const vector<Orarend*> &edzesek, const vecto
     cout << "Osszes orak szama: " << oraCounter << endl;
 }
 
-string Admin::getType() const
-{
-    return "admin";
+int Admin::getType() const {
+    return 1;
 }

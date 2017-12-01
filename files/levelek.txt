@@ -1,8 +1,8 @@
-1 2
-Üdv a fitness centrumban! hihi
-1 3
-Üdv a fitness centrumban! hehe
-1 4
-Üdv a fitness centrumban! haha
-1 5
-Üdv a fitness centrumban! hoho ;)
+1 2 0
+udv a fitness centrumban! hihi
+1 3 1
+udv a fitness centrumban! hehe
+1 4 0
+udv a fitness centrumban! haha
+1 5 1
+udv a fitness centrumban! hoho ;)

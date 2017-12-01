@@ -1,13 +1,12 @@
 #include "IdBox.h"
 
-void IdBox::setCounter(int value)
-{
+void IdBox::setCounter(int value) {
     counter = value;
 }
 
-IdBox::IdBox(): counter(1) {
-
-}
+IdBox::IdBox():
+    counter(1)
+{}
 
 IdBox &IdBox::getInstance() {
 
@@ -17,7 +16,6 @@ IdBox &IdBox::getInstance() {
 
 }
 
-int IdBox::giveId()
-{
+int IdBox::giveId() {
     return counter++;
 }

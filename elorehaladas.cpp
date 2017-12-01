@@ -1,7 +1,18 @@
 #include "elorehaladas.h"
 
+int EloreHaladas::getCel() const
+{
+    return cel;
+}
+
+vector<NapiTevekenyseg *> EloreHaladas::getTevekenysegek() const
+{
+    return tevekenysegek;
+}
+
 EloreHaladas::EloreHaladas(int p_tagID, int p_cel):
-    tagID(p_tagID), cel(p_cel)
+    tagID(p_tagID),
+    cel(p_cel)
 {}
 
 int EloreHaladas::getTagID() {
@@ -18,7 +29,7 @@ void EloreHaladas::tevekenysegekHozzaadasa() {
     cout << "Adja meg a napot!" << endl;
     cin >> nap;
     do {
-        cout << "Adja meg a sportot!" << endl;
+        cout << "Adja meg a sportot!\n(0 - aerobic|1 - pilates|2 - kangoo)" << endl;
         cin >> sportNum;
         switch (sportNum) {
         case 0:
@@ -28,7 +39,7 @@ void EloreHaladas::tevekenysegekHozzaadasa() {
             sport = "pilates";
             break;
         case 2:
-            sport = "kengu";
+            sport = "kangoo";
             break;
         }
     } while(sportNum > 2);
@@ -55,7 +66,6 @@ void EloreHaladas::osszegez() {
     cout << "Cel suly: " << cel << endl;
 }
 
-void EloreHaladas::tevekenysegBetoltese(NapiTevekenyseg* nt)
-{
+void EloreHaladas::tevekenysegBetoltese(NapiTevekenyseg* nt) {
     tevekenysegek.push_back(nt);
 }
