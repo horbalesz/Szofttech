@@ -44,7 +44,7 @@ void Felhasznalo::levelIrasa(Levelezes *levelek,  vector<Felhasznalo *> &felhasz
         string uzi = "";
         while(uzi == "")
             getline(cin, uzi);
-        levelek->levelHozzaadasa(new Level(id, cimzett, uzi));
+        levelek->levelHozzaadasa(new Level(id, cimzettID, uzi));
         cout << "Level kuldese sikeres." << endl;
     } else {
         cout << "Nincs ilyen felhasznalo!" << endl;
@@ -62,7 +62,7 @@ void Felhasznalo::olvasatlanOlvasasa(Levelezes *levelek, vector<Felhasznalo *> &
             string feladoNev;
             for(auto j : felhasznalok) {
                 if(j->getId()==feladoID) {
-                    feladoNev ==j->getFelhasznaloNev();
+                    feladoNev =j->getFelhasznaloNev();
                 }
             }
             cout << "Felado: " + feladoNev << endl;
@@ -71,19 +71,34 @@ void Felhasznalo::olvasatlanOlvasasa(Levelezes *levelek, vector<Felhasznalo *> &
         }
     }
     if(!letezik) {
-        cout << endl << "----------------------------------------" << endl;
         cout << "Nincs olvasatlan levele." << endl;
-        cout << "----------------------------------------" << endl;
     }
     cout << endl;
 }
 
 void Felhasznalo::teljesOlvasasa(Levelezes *levelek, vector<Felhasznalo *> &felhasznalok) {
-    /*cout << endl;
+    cout << endl;
+    bool letezik = false;
     for(auto i : levelek->getLevelek()) {
         if(i->getCimzettID()==id || i->getKuldoID()==id) {
-
+            i->setOlvasott();
+            int kuldoID = i->getKuldoID(), cimzettID = i-> getCimzettID();
+            string cimzett, kuldo;
+            for(auto j :felhasznalok) {
+                if(j->getId()==kuldoID) {
+                    kuldo = j->getFelhasznaloNev();
+                } else if(j->getId()==cimzettID) {
+                    cimzett = j->getFelhasznaloNev();
+                }
+            }
+            letezik = true;
+            cout << "Felado: " + kuldo << endl;
+            cout << "Cimzett: " + cimzett << endl;
+            cout << "Uzenet: " << endl << i->getUzenet() << endl << endl;
         }
     }
-    cout << endl;*/
+    if(!letezik) {
+        cout << "Onnek nincs levele." << endl;
+    }
+    cout << endl;
 }
