@@ -48,6 +48,7 @@ void Tag::edzesrolLeiratkozas(vector<Orarend*> &edzesek) {
 
 void Tag::sajatEdzesekLekerdezese(const vector<Orarend *> &edzesek)
 {
+    bool van = false;
     for(auto i : edzesek) {
         vector<Ora*> orak = i->getOra();
         for(auto j : orak) {
@@ -57,9 +58,15 @@ void Tag::sajatEdzesekLekerdezese(const vector<Orarend *> &edzesek)
                     cout << endl;
                     j->oraKiir();
                     cout << endl;
+                    van=true;
                 }
             }
         }
+    }
+    if(van == false) {
+        cout << endl << "----------------------------------------" << endl;
+        cout << "Nincs feliratkozott ora" << endl;
+        cout << "----------------------------------------" << endl;
     }
 }
 
