@@ -15,7 +15,6 @@ SOURCES += main.cpp \
     elorehaladas.cpp \
     napitevekenyseg.cpp \
     fitnesscentrum.cpp \
-    fcmain.cpp \
     idbox.cpp
 
 HEADERS += \
@@ -30,5 +29,4 @@ HEADERS += \
     elorehaladas.h \
     napitevekenyseg.h \
     fitnesscentrum.h \
-    fcmain.h \
     idbox.h

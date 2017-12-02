@@ -27,10 +27,10 @@ void Edzo::oraHozzaadasa(vector<Orarend*> &orarendek) {
     }
 }
 
-void Edzo::oraTorlese(vector<Orarend*> &orarendek) {
+void Edzo::oraTorlese(vector<Orarend*> &orarendek, Levelezes *levelezesek) {
     for(auto &i : orarendek) {
         if(i->getEdzoId() == id)
-            i->oraTorlese();
+            i->oraTorlese(levelezesek);
     }
 }
 
