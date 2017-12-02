@@ -8,6 +8,9 @@
 #include "orarend.h"
 #include "levelezes.h"
 #include "elorehaladas.h"
+#include "tag.h"
+#include "admin.h"
+#include "edzo.h"
 
 using namespace std;
 
@@ -15,16 +18,25 @@ class FitnessCentrum
 {
     vector<Orarend*> teljesOrarend;
     vector<EloreHaladas*> teljesSportnaplo;
+    vector<Felhasznalo*> felhasznalok;
+    Felhasznalo* bejelentkezettFelhasznalo;
     Levelezes* teljesLevelezes;
 public:
     FitnessCentrum();
     vector<Orarend*>& getTeljesOrarend();
     vector<EloreHaladas*>& getTeljesSportnaplo();
+    vector<Felhasznalo*>& getFelhasznalok();
+    Levelezes* getLevelezes();
     void orarendekKiir();
     void latogatoMenu();
-    void setTeljesOrarend(vector<Orarend*> p_orarend);
-    void setTeljesSportnaplo(vector<EloreHaladas*> p_sportnaplo);
+    void setTeljesOrarend(vector<Orarend *> &p_orarend);
+    void setTeljesSportnaplo(vector<EloreHaladas*> &p_sportnaplo);
     void setTeljesLevelezes(Levelezes* p_levelek);
+    void setFelhasznalok(vector<Felhasznalo *> &p_felhasznalok);
+    void bejelentkezes();
+    void regisztracio();
+    void vegrehajt(int cmd);
+    void start();
 };
 
 #endif // FITNESSCENTRUM_H

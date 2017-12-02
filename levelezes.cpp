@@ -1,6 +1,7 @@
 #include "levelezes.h"
 
-Levelezes::Levelezes() {}
+Levelezes::Levelezes()
+{}
 
 void Levelezes::levelHozzaadasa(Level *hozzaadando) {
     levelek.push_back(hozzaadando);
@@ -24,4 +25,9 @@ void Levelezes::olvasatlanKiirasa(int szemelyid) const
             (*it)->setOlvasott();
         }
     }
+}
+
+vector<Level *> Levelezes::getLevelek()
+{
+    return levelek;
 }

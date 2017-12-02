@@ -1,8 +1,10 @@
 #ifndef TAG_H
 #define TAG_H
+
 #include "orarend.h"
 #include "elorehaladas.h"
 #include "felhasznalo.h"
+
 using namespace std;
 
 class Orarend;
@@ -19,7 +21,7 @@ public:
     void edzesekLekerdezese(const vector<Orarend*> &edzesek);
     void elorehaladasLekerdezese(vector<EloreHaladas*> &sportNaplo);
     void napiTevekenysegHozzaadasa(vector<EloreHaladas*> &sportNaplo);
-    string getType() const;
+    int getType() const;
 };
 
 #endif // TAG_H

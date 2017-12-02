@@ -123,7 +123,7 @@ void FCMain::betolt()
                     input >> suly;
                     if(tmp->getTagID() != 0)
                         elore_tmp.push_back(tmp);
-                    delete tmp;
+                    //delete tmp;
                     tmp = new EloreHaladas(tagId, suly);
                 }
                 else
@@ -134,7 +134,7 @@ void FCMain::betolt()
             }
 
             fc.setTeljesSportnaplo(elore_tmp);
-            delete tmp;
+            //delete tmp;
         }
 
     }

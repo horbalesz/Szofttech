@@ -1,6 +1,8 @@
 #ifndef ADMIN_H
 #define ADMIN_H
+
 #include <vector>
+
 #include "orarend.h"
 #include "felhasznalo.h"
 #include "edzo.h"
@@ -15,7 +17,7 @@ public:
     void menu();
     void edzoRegisztralasa(vector<Felhasznalo*> &felhasznalok);
     void statisztikakLekerdezese(const vector<Orarend*> &edzesek, const vector<Felhasznalo*> &felhasznalok);
-    string getType() const;
+    int getType() const;
 };
 
 #endif // ADMIN_H

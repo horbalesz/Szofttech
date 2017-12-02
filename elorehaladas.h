@@ -20,6 +20,8 @@ public:
     void tevekenysegekHozzaadasa();
     void osszegez();
     void tevekenysegBetoltese(NapiTevekenyseg *nt);
+    int getCel() const;
+    vector<NapiTevekenyseg *> getTevekenysegek() const;
 };
 
 #endif // ELOREHALADAS_H
