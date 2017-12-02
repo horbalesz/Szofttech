@@ -30,7 +30,7 @@ void FitnessCentrum::orarendekKiir() {
 }
 
 void FitnessCentrum::latogatoMenu() {
-    cout << "1 - Belepes" << endl;
+    cout << endl << "1 - Belepes" << endl;
     cout << "2 - Regisztracio" << endl;
     cout << "3 - Orarend lekerdezese" << endl;
     cout << "x - Kilepes" << endl;
@@ -73,11 +73,14 @@ void FitnessCentrum::bejelentkezes() {
 }
 
 void FitnessCentrum::regisztracio() {
-    int jelszo;
+    int jelszo, suly;
     cout << "Adja meg a negyjegyu pinkodjat!" << endl;
     cin >> jelszo;
+    cout << "Adja meg a celsulyt amit el szeretne erni: ";
+    cin >> suly;
     felhasznalok.push_back(new Tag(jelszo));
     bejelentkezettFelhasznalo = felhasznalok.back();
+    teljesSportnaplo.push_back(new EloreHaladas(bejelentkezettFelhasznalo->getId(),suly));
     cout << endl << "Az on azonositoja: " << bejelentkezettFelhasznalo->getId() << endl;
     cout << "Az on jelszava: " << bejelentkezettFelhasznalo->getJelszo() << endl;
 }
@@ -95,7 +98,7 @@ void FitnessCentrum::vegrehajt(int cmd) {
                 felhasz->statisztikakLekerdezese(teljesOrarend, felhasznalok);
                 break;
             case 3:
-                felhasz->levelIrasa(teljesLevelezes);
+                felhasz->levelIrasa(teljesLevelezes, felhasznalok);
                 break;
             case 4:
                 felhasz->olvasatlanOlvasasa(teljesLevelezes);
@@ -118,7 +121,7 @@ void FitnessCentrum::vegrehajt(int cmd) {
                 felhasz->oraTorlese(teljesOrarend);
                 break;
             case 4:
-                felhasz->levelIrasa(teljesLevelezes);
+                felhasz->levelIrasa(teljesLevelezes, felhasznalok);
                 break;
             case 5:
                 felhasz->olvasatlanOlvasasa(teljesLevelezes);
@@ -135,24 +138,27 @@ void FitnessCentrum::vegrehajt(int cmd) {
                 orarendekKiir();
                 break;
             case 2:
-                felhasz->edzesreFeliratkozas(teljesOrarend);
+                felhasz->sajatEdzesekLekerdezese(teljesOrarend);
                 break;
             case 3:
-                felhasz->edzesrolLeiratkozas(teljesOrarend);
+                felhasz->edzesreFeliratkozas(teljesOrarend);
                 break;
             case 4:
-                felhasz->napiTevekenysegHozzaadasa(teljesSportnaplo);
+                felhasz->edzesrolLeiratkozas(teljesOrarend);
                 break;
             case 5:
-                felhasz->elorehaladasLekerdezese(teljesSportnaplo);
+                felhasz->napiTevekenysegHozzaadasa(teljesSportnaplo);
                 break;
             case 6:
-                felhasz->levelIrasa(teljesLevelezes);
+                felhasz->elorehaladasLekerdezese(teljesSportnaplo);
                 break;
             case 7:
-                felhasz->olvasatlanOlvasasa(teljesLevelezes);
+                felhasz->levelIrasa(teljesLevelezes, felhasznalok);
                 break;
             case 8:
+                felhasz->olvasatlanOlvasasa(teljesLevelezes);
+                break;
+            case 9:
                 felhasz->teljesOlvasasa(teljesLevelezes);
                 break;
             }
@@ -180,6 +186,7 @@ void FitnessCentrum::start()
     latogatoMenu();
     cin >> cmd;
     while(cmd != "x") {
+        cout << endl;
         vegrehajt(stoi(cmd));
         if(bejelentkezettFelhasznalo) {
             bejelentkezettFelhasznalo->menu();

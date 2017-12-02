@@ -24,6 +24,7 @@ public:
     void setFeliratkozottak(const vector<int> &value);
     string oraMent();
     string feliratkozottakMent();
+    vector<int> getFeliratkozottak() const;
 };
 
 #endif // ORA_H

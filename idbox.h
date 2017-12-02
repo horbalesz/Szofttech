@@ -12,6 +12,7 @@ public:
     static IdBox &getInstance();
     int giveId();
     void setCounter(int value);
+    int getCounter() const;
 };
 
 
