@@ -131,6 +131,16 @@ void betolt(FitnessCentrum* fc)  {
             input.close();
         }
     }
+
+    { //counter beolvasása
+        ifstream input("counter.txt");
+        if(input.is_open()) {
+            int ct;
+            input >> ct;
+            IdBox::getInstance().setCounter(ct);
+            input.close();
+        }
+    }
 }
 
 void ment(FitnessCentrum *fc)
@@ -197,6 +207,14 @@ void ment(FitnessCentrum *fc)
                     out << j->tevekenysegMent();
             }
             out << "0";
+            out.close();
+        }
+    }
+
+    { //counter elmentése
+        ofstream out("counter.txt");
+        if(out.is_open()) {
+            out << IdBox::getInstance().getCounter();
             out.close();
         }
     }

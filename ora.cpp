@@ -19,6 +19,11 @@ string Ora::feliratkozottakMent()
     return str;
 }
 
+vector<int> Ora::getFeliratkozottak() const
+{
+    return feliratkozottak;
+}
+
 Ora::Ora(int kezdEv, int kezdHonap, int kezdNap, int kezdOra, int kezdPerc,
          int hossz, int maxLetszam, const string &sport):
     kezdEv(kezdEv),
@@ -73,8 +78,10 @@ void Ora::feliratkoztat(int id) {
 
     if(vane)
         cout << "Mar fel vagy iratkozva erre az orara!" << endl;
-    else
+    else {
         feliratkozottak.push_back(id);
+        cout << "Feliratkozas sikeres." << endl;
+    }
 }
 
 void Ora::leiratkoztat(int id) {

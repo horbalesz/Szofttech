@@ -4,6 +4,11 @@ void IdBox::setCounter(int value) {
     counter = value;
 }
 
+int IdBox::getCounter() const
+{
+    return counter;
+}
+
 IdBox::IdBox():
     counter(1)
 {}
