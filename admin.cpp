@@ -14,7 +14,8 @@ void Admin::menu() {
         cout << "3 - Level kuldese" << endl;
         cout << "4 - Olvasatlan levelek olvasasa" << endl;
         cout << "5 - Osszes level olvasasa" << endl;
-        cout << "x - Kilepes" << endl;
+        cout << "6 - Kijelenetkezes" << endl;
+        cout << "x - Bezaras" << endl;
         cout << "Valasz: ";
 }
 

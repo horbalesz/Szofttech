@@ -16,8 +16,7 @@ vector<Felhasznalo *> &FitnessCentrum::getFelhasznalok() {
     return felhasznalok;
 }
 
-Levelezes *FitnessCentrum::getLevelezes()
-{
+Levelezes *FitnessCentrum::getLevelezes() {
     return teljesLevelezes;
 }
 
@@ -33,7 +32,7 @@ void FitnessCentrum::latogatoMenu() {
     cout << endl << "1 - Belepes" << endl;
     cout << "2 - Regisztracio" << endl;
     cout << "3 - Orarend lekerdezese" << endl;
-    cout << "x - Kilepes" << endl;
+    cout << "x - Bezaras" << endl;
 }
 
 void FitnessCentrum::setTeljesOrarend(vector<Orarend*> &p_orarend) {
@@ -56,19 +55,36 @@ void FitnessCentrum::bejelentkezes() {
     int id, jelszo;
     cout << "Adja meg az azonositojat!" << endl;
     cin >> id;
-    cout << "Adja meg a jelszavat!" << endl;
-    cin >> jelszo;
-    bool vegzett = false;
-    for(auto it = felhasznalok.begin();it != felhasznalok.end() && !vegzett;++it) {
-        if((*it)->getId()==id) {
-            vegzett=true;
-            if((*it)->getJelszo()==jelszo) {
-                cout << "Sikeres bejelentkezes!" << endl;
-                bejelentkezettFelhasznalo=(*it);
-            } else {
-                cout << "Helytelen jelszo!" << endl;
-            }
+    Felhasznalo* talaltFelhasznalo= 0;
+    for(auto i : felhasznalok) {
+        if(i->getId()==id) {
+            talaltFelhasznalo = i;
         }
+    }
+    if(talaltFelhasznalo) {
+        string tipus;
+        switch (talaltFelhasznalo->getType()) {
+        case 1:
+            tipus = "admin";
+            break;
+        case 2:
+            tipus = "edzo";
+            break;
+        case 3:
+            tipus = "tag";
+            break;
+        }
+        cout << "Bejelentkezes " << talaltFelhasznalo->getId() << " azonositoju " + tipus + "kent." << endl;
+        cout << "Adja meg a jelszavat!" << endl;
+        cin >> jelszo;
+        if(talaltFelhasznalo->getJelszo()==jelszo) {
+            bejelentkezettFelhasznalo=talaltFelhasznalo;
+            cout << "Sikeres bejelentkezes!" << endl;
+        } else {
+            cout << "Helytelen jelszo!" << endl;
+        }
+    } else {
+        cout << "Nincs ilyen azonositoju felhasznalo!" << endl;
     }
 }
 
@@ -106,6 +122,11 @@ void FitnessCentrum::vegrehajt(int cmd) {
             case 5:
                 felhasz->teljesOlvasasa(teljesLevelezes);
                 break;
+            case 6:
+                kijelentkezes();
+                break;
+            default:
+                cout << "Nincs ilyen parancs." << endl;
             }
             break;}
         case 2:
@@ -129,6 +150,11 @@ void FitnessCentrum::vegrehajt(int cmd) {
             case 6:
                 felhasz->teljesOlvasasa(teljesLevelezes);
                 break;
+            case 7:
+                kijelentkezes();
+                break;
+            default:
+                cout << "Nincs ilyen parancs." << endl;
             }
             break;}
         case 3:
@@ -161,6 +187,11 @@ void FitnessCentrum::vegrehajt(int cmd) {
             case 9:
                 felhasz->teljesOlvasasa(teljesLevelezes);
                 break;
+            case 10:
+                kijelentkezes();
+                break;
+            default:
+                cout << "Nincs ilyen parancs." << endl;
             }
             break;}
         }
@@ -175,12 +206,13 @@ void FitnessCentrum::vegrehajt(int cmd) {
         case 3:
             orarendekKiir();
             break;
+        default:
+            cout << "Nincs ilyen parancs." << endl;
         }
     }
 }
 
-void FitnessCentrum::start()
-{
+void FitnessCentrum::start() {
     string cmd;
     cout << "Udvozoljuk a Fitness Centrum programjaban!" << endl << endl;
     latogatoMenu();
@@ -195,4 +227,9 @@ void FitnessCentrum::start()
         }
         cin >> cmd;
     }
+}
+
+void FitnessCentrum::kijelentkezes() {
+    bejelentkezettFelhasznalo = 0;
+    cout << "Sikeres kijelentkezes!" << endl;
 }

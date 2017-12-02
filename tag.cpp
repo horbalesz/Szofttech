@@ -18,7 +18,8 @@ void Tag::menu() {
     cout << "7 - Level kuldese" << endl;
     cout << "8 - Olvasatlan levelek olvasasa" << endl;
     cout << "9 - Osszes level olvasasa" << endl;
-    cout << "x - Kilepes" << endl;
+    cout << "10 - Kijelentkezes" << endl;
+    cout << "x - Bezaras" << endl;
     cout << "Valasz: ";
 }
 

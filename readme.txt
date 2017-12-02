@@ -1,10 +1,10 @@
 Funkciók: 
 
 Rendszer:
-o Menü
++ Menü
 
 Látogató:
-o Bejelentkezés
++ Bejelentkezés
 o Regisztráció
 o Edzések megtekintése
 
@@ -12,7 +12,7 @@ Felhasználó:
 o Levélküldés
 o Olvasattlan levél olvasása
 o Összes levél olvasása
--Kijelentkezés
+o Kijelentkezés
 
 Tag:
 o Teljes órarend lekérdezése
@@ -36,3 +36,4 @@ Megjegyzés:
 x -> Implementált
 o -> Müködõ
 + -> Tesztelt (felhasználó barát)
+* -> Idiot-proof (bármilyen inputot kezel)
