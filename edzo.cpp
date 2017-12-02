@@ -15,7 +15,8 @@ void Edzo::menu() {
     cout << "4 - Level kuldese" << endl;
     cout << "5 - Olvasatlan levelek olvasasa" << endl;
     cout << "6 - Osszes level olvasasa" << endl;
-    cout << "x - Kilepes" << endl;
+    cout << "7 - Kijelentkezes" << endl;
+    cout << "x - Bezaras" << endl;
     cout << "Valasz: ";
 }
 
