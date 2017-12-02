@@ -35,6 +35,7 @@ void Felhasznalo::levelIrasa(Levelezes *levelek,  vector<Felhasznalo *> &felhasz
         while(uzi == "")
             getline(cin, uzi);
         levelek->levelHozzaadasa(new Level(id, cimzett, uzi));
+        cout << "Level kuldese sikeres." << endl;
     } else {
         cout << "Nincs ilyen felhasznalo!" << endl;
     }

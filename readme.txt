@@ -28,8 +28,8 @@ o Óra törlése
 o Saját órák lekérdezése
 
 Admin:
-x Edzõ regisztrálása
-x Statisztikák lekérdezése
+o Edzõ regisztrálása
+o Statisztikák lekérdezése
 
 Megjegyzés:
 - -> Terv

@@ -42,7 +42,7 @@ void Orarend::oraHozzaadasa() {
     cout << "Ora hozzaadva." << endl;
 }
 
-void Orarend::oraTorlese() {
+void Orarend::oraTorlese(Levelezes* levelezesek) {
     int id;
     cout << "Add meg a torolni kivant ora id-jet" << endl;
     cin >> id;
@@ -57,6 +57,10 @@ void Orarend::oraTorlese() {
     if(kapcsolo)
         cout << "Ilyen ora nincs." << endl;
     else {
+        vector<int> fel_tmp = ora[holvan]->getFeliratkozottak();
+        for(auto i :fel_tmp) {
+            levelezesek->levelHozzaadasa(new Level(edzoId, i,"Elnezest, a(z) " + to_string(ora[holvan]->getId()) + " azonositoju ora torlesre kerult."));
+        }
         ora.erase(ora.begin()+holvan);
         cout << "Ora torolve." << endl;
     }
