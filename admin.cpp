@@ -9,13 +9,13 @@ Admin::Admin(int id, int jelszo):
 {}
 
 void Admin::menu() {
-        cout << "1 - Edzok regisztralasa" << endl;
+        cout << endl << "1 - Edzok regisztralasa" << endl;
         cout << "2 - Statisztikak lekerdezese" << endl;
         cout << "3 - Level kuldese" << endl;
         cout << "4 - Olvasatlan levelek olvasasa" << endl;
         cout << "5 - Osszes level olvasasa" << endl;
         cout << "x - Kilepes" << endl;
-        cout << "Valassz: ";
+        cout << "Valasz: ";
 }
 
 void Admin::edzoRegisztralasa(vector<Felhasznalo*> &felhasznalok) {

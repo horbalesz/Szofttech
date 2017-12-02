@@ -30,7 +30,7 @@ void FitnessCentrum::orarendekKiir() {
 }
 
 void FitnessCentrum::latogatoMenu() {
-    cout << "1 - Belepes" << endl;
+    cout << endl << "1 - Belepes" << endl;
     cout << "2 - Regisztracio" << endl;
     cout << "3 - Orarend lekerdezese" << endl;
     cout << "x - Kilepes" << endl;
@@ -98,7 +98,7 @@ void FitnessCentrum::vegrehajt(int cmd) {
                 felhasz->statisztikakLekerdezese(teljesOrarend, felhasznalok);
                 break;
             case 3:
-                felhasz->levelIrasa(teljesLevelezes);
+                felhasz->levelIrasa(teljesLevelezes, felhasznalok);
                 break;
             case 4:
                 felhasz->olvasatlanOlvasasa(teljesLevelezes);
@@ -121,7 +121,7 @@ void FitnessCentrum::vegrehajt(int cmd) {
                 felhasz->oraTorlese(teljesOrarend);
                 break;
             case 4:
-                felhasz->levelIrasa(teljesLevelezes);
+                felhasz->levelIrasa(teljesLevelezes, felhasznalok);
                 break;
             case 5:
                 felhasz->olvasatlanOlvasasa(teljesLevelezes);
@@ -153,7 +153,7 @@ void FitnessCentrum::vegrehajt(int cmd) {
                 felhasz->elorehaladasLekerdezese(teljesSportnaplo);
                 break;
             case 7:
-                felhasz->levelIrasa(teljesLevelezes);
+                felhasz->levelIrasa(teljesLevelezes, felhasznalok);
                 break;
             case 8:
                 felhasz->olvasatlanOlvasasa(teljesLevelezes);
@@ -186,6 +186,7 @@ void FitnessCentrum::start()
     latogatoMenu();
     cin >> cmd;
     while(cmd != "x") {
+        cout << endl;
         vegrehajt(stoi(cmd));
         if(bejelentkezettFelhasznalo) {
             bejelentkezettFelhasznalo->menu();

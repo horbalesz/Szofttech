@@ -9,7 +9,7 @@ Tag::Tag(int id, int jelszo):
 {}
 
 void Tag::menu() {
-    cout << "1 - Edzesek megjelenitese" << endl;
+    cout << endl << "1 - Edzesek megjelenitese" << endl;
     cout << "2 - Sajat orarend megjelenitese" << endl;
     cout << "3 - Orara feliratkozas" << endl;
     cout << "4 - Orarol leiratkozas" << endl;
@@ -19,7 +19,7 @@ void Tag::menu() {
     cout << "8 - Olvasatlan levelek olvasasa" << endl;
     cout << "9 - Osszes level olvasasa" << endl;
     cout << "x - Kilepes" << endl;
-    cout << "Valassz: ";
+    cout << "Valasz: ";
 }
 
 void Tag::edzesreFeliratkozas(vector<Orarend*> &edzesek) {
