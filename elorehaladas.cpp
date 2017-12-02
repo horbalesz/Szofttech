@@ -43,11 +43,18 @@ void EloreHaladas::tevekenysegekHozzaadasa() {
             break;
         }
     } while(sportNum > 2);
-    cout << "Adja meg az idotartamot!" << endl;
+    cout << "Adja meg az idotartamot (perc)!" << endl;
     cin >> idotartam;
     cout << "Adja meg az sulyat!" << endl;
     cin >> suly;
     tevekenysegek.push_back(new NapiTevekenyseg(sport, idotartam, ev, honap, nap, suly));
+    if(suly == cel) {
+        cout << endl << "Gratulalunk, elerte a beallitott celjat!" << endl;
+        cout << "Adjon meg uj celt: ";
+        cin >> cel;
+        cout << "Az uj cel sikeresen be lett allitva!" << endl;
+        cout << "Sok sikert!" << endl;
+    }
 }
 
 void EloreHaladas::osszegez() {
@@ -66,9 +73,7 @@ void EloreHaladas::osszegez() {
         cout << "Jelenlegi suly: " << jelenlegiSuly << endl;
         cout << "Cel suly: " << cel << endl;
     } else {
-        cout << endl << "----------------------------------------" << endl;
         cout << "Nincs meg napi tevekenysege megadva." << endl;
-        cout << "----------------------------------------" << endl;
     }
 }
 

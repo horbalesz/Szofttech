@@ -65,6 +65,7 @@ void Ora::oraKiir() {
     cout << "OraID: " << id << endl;
     cout << "Idopont: " << kezdEv << ". " << kezdHonap << ". " << kezdNap << "." << endl;
     cout << "Kezdes: " << kezdOra << ":" << kezdPerc << endl;
+    cout << "Sport: " + sport << endl;
     cout << "Hossza: " << hossz << " perc" << endl;
     cout << "Szabad helyek szama: " << maxLetszam-feliratkozottak.size() << endl;
 }
@@ -95,7 +96,7 @@ void Ora::leiratkoztat(int id) {
 
     if(holvan!=-1) {
         feliratkozottak.erase(feliratkozottak.begin()+holvan);
-        cout << "(Leiratkozas) Sikeres." << endl;
+        cout << "Leiratkozas sikeres." << endl;
     } else
         cout << "Nem is vagy feliratkozva erre az orara!" << endl;
 }

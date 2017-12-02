@@ -16,8 +16,8 @@ public:
     Tag(int jelszo,string nev);
     Tag(int id, int jelszo, string nev);
     void menu();
-    void edzesreFeliratkozas(vector<Orarend *> &edzesek);
-    void edzesrolLeiratkozas(vector<Orarend*> &edzesek);
+    void edzesreFeliratkozas(vector<Orarend *> &edzesek, const vector<Felhasznalo*> felhasznalok);
+    void edzesrolLeiratkozas(vector<Orarend*> &edzesek, const vector<Felhasznalo *> felhasznalok);
     void sajatEdzesekLekerdezese(const vector<Orarend*> &edzesek);
     void elorehaladasLekerdezese(vector<EloreHaladas*> &sportNaplo);
     void napiTevekenysegHozzaadasa(vector<EloreHaladas*> &sportNaplo);

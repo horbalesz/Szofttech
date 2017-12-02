@@ -3,6 +3,7 @@
 
 #include <sstream>
 
+#include "felhasznalo.h"
 #include "levelezes.h"
 #include "ora.h"
 
@@ -14,7 +15,7 @@ class Orarend
     vector<Ora*> ora;
 public:
     Orarend(int edzoId);
-    void orarendKiir();
+    void orarendKiir(const vector<Felhasznalo*> felhasznalok);
     void oraHozzaadasa();
     void oraTorlese(Levelezes *levelezesek);
     void felirOrara(int id);

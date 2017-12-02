@@ -23,7 +23,7 @@ Levelezes *FitnessCentrum::getLevelezes() {
 void FitnessCentrum::orarendekKiir() {
     cout << "A teljes orarend:" << endl;
     for(auto it = teljesOrarend.begin();it!=teljesOrarend.end();++it) {
-        (*it)->orarendKiir();
+        (*it)->orarendKiir(felhasznalok);
         cout << endl;
     }
 }
@@ -61,6 +61,17 @@ void FitnessCentrum::bejelentkezes() {
         if(i->getFelhasznaloNev()==felhaszNev) {
             talaltFelhasznalo = i;
         }
+        cout << "Bejelentkezes " << talaltFelhasznalo->getId() << " azonositoju " + tipus + "kent." << endl;
+        cout << "Adja meg a jelszavat!" << endl;
+        cin >> jelszo;
+        if(talaltFelhasznalo->getJelszo()==jelszo) {
+            bejelentkezettFelhasznalo=talaltFelhasznalo;
+            cout << "Sikeres bejelentkezes!" << endl;
+        } else {
+            cout << "Helytelen jelszo!" << endl;
+        }
+    } else {
+        cout << "Nincs ilyen azonositoju felhasznalo!" << endl;
     }
     if(talaltFelhasznalo) {
         string tipus;
@@ -92,8 +103,20 @@ void FitnessCentrum::bejelentkezes() {
 void FitnessCentrum::regisztracio() {
     int jelszo, suly;
     string felhaszNev;
-    cout << "Adja meg a felhasznalo nevet!" << endl;
-    cin >> felhaszNev;
+    bool letezik;
+    do {
+        cout << "Adja meg a felhasznalo nevet!" << endl;
+        cin >> felhaszNev;
+        letezik = false;
+        for(auto i: felhasznalok) {
+            if(i->getFelhasznaloNev()==felhaszNev) {
+                letezik = true;
+            }
+        }
+        if(letezik) {
+            cout << "Mar letezik ilyen felhasznalo!" << endl;
+        }
+    } while(letezik);
     cout << "Adja meg a negyjegyu pinkodjat!" << endl;
     cin >> jelszo;
     cout << "Adja meg a celsulyt amit el szeretne erni: ";
@@ -112,7 +135,7 @@ void FitnessCentrum::vegrehajt(int cmd) {
             {Admin* felhasz = dynamic_cast<Admin*>(bejelentkezettFelhasznalo);
             switch (cmd) {
             case 1:
-                felhasz->edzoRegisztralasa(felhasznalok);
+                felhasz->edzoRegisztralasa(felhasznalok, teljesOrarend);
                 break;
             case 2:
                 felhasz->statisztikakLekerdezese(teljesOrarend, felhasznalok);
@@ -137,7 +160,7 @@ void FitnessCentrum::vegrehajt(int cmd) {
             {Edzo* felhasz = dynamic_cast<Edzo*>(bejelentkezettFelhasznalo);
             switch(cmd) {
             case 1:
-                felhasz->sajatOrarendMegtekintese(teljesOrarend);
+                felhasz->sajatOrarendMegtekintese(teljesOrarend, felhasznalok);
                 break;
             case 2:
                 felhasz->oraHozzaadasa(teljesOrarend);
@@ -171,10 +194,10 @@ void FitnessCentrum::vegrehajt(int cmd) {
                 felhasz->sajatEdzesekLekerdezese(teljesOrarend);
                 break;
             case 3:
-                felhasz->edzesreFeliratkozas(teljesOrarend);
+                felhasz->edzesreFeliratkozas(teljesOrarend, felhasznalok);
                 break;
             case 4:
-                felhasz->edzesrolLeiratkozas(teljesOrarend);
+                felhasz->edzesrolLeiratkozas(teljesOrarend, felhasznalok);
                 break;
             case 5:
                 felhasz->napiTevekenysegHozzaadasa(teljesSportnaplo);

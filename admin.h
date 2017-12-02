@@ -15,7 +15,7 @@ public:
     Admin(int jelszo, string nev);
     Admin(int id, int jelszo, string nev);
     void menu();
-    void edzoRegisztralasa(vector<Felhasznalo*> &felhasznalok);
+    void edzoRegisztralasa(vector<Felhasznalo*> &felhasznalok, vector<Orarend *> &orarendek);
     void statisztikakLekerdezese(const vector<Orarend*> &edzesek, const vector<Felhasznalo*> &felhasznalok);
     int getType() const;
 };

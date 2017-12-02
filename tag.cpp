@@ -23,26 +23,63 @@ void Tag::menu() {
     cout << "Valasz: ";
 }
 
-void Tag::edzesreFeliratkozas(vector<Orarend*> &edzesek) {
-    cout << "(Feliratkozas) Add meg az orat tarto edzo id-jet: ";
+void Tag::edzesreFeliratkozas(vector<Orarend*> &edzesek, const vector<Felhasznalo *> felhasznalok) {
+    cout << "Adja meg az orat tarto edzo felhasznalonevet: ";
+    string edzoNev;
     int edzoId;
-    cin >> edzoId;
-
-    for(auto &i : edzesek) {
-        if(i->getEdzoId() == edzoId)
-            i->felirOrara(id);
+    cin >> edzoNev;
+    bool letezikEdzo = false;
+    for(auto i : felhasznalok) {
+        if(i->getFelhasznaloNev()==edzoNev) {
+            edzoId = i->getId();
+            letezikEdzo = true;
+        }
     }
-
+    if(letezikEdzo) {
+        for(auto &i : edzesek) {
+            if(i->getEdzoId() == edzoId) {
+                i->felirOrara(id);
+            }
+        }
+    } else {
+        cout << "Nincs ilyen nevu edzo!" << endl;
+    }
 }
 
-void Tag::edzesrolLeiratkozas(vector<Orarend*> &edzesek) {
-    cout << "(Leiratkozas) Add meg az orat tarto edzo id-jet: ";
-    int edzoId;
-    cin >> edzoId;
-
-    for(auto &i : edzesek) {
-        if(i->getEdzoId() == edzoId)
-            i->leirOrarol(id);
+void Tag::edzesrolLeiratkozas(vector<Orarend*> &edzesek, const vector<Felhasznalo *> felhasznalok) {
+    bool letezik = false;
+    for(auto i : edzesek) {
+        for(auto j : i->getOra()) {
+            for(auto k : j->getFeliratkozottak()) {
+                if(k == id) {
+                    letezik=true;
+                }
+            }
+        }
+    }
+    if(letezik == false) {
+        cout << "On nincs feliratkozva orara." << endl;
+    } else {
+        cout << "Adja meg az orat tarto edzo felhasznalonevet: ";
+        string edzoNev;
+        int edzoId;
+        cin >> edzoNev;
+        bool letezikEdzo = false;
+        for(auto i : felhasznalok) {
+            if(i->getFelhasznaloNev()==edzoNev) {
+                edzoId = i->getId();
+                letezikEdzo = true;
+            }
+        }
+        if(letezikEdzo) {
+            for(auto &i : edzesek) {
+                if(i->getEdzoId() == edzoId) {
+                    i->leirOrarol(id);
+                }
+            }
+        } else {
+            cout << "Nincs ilyen nevu edzo!" << endl;
+        }
     }
 }
 
@@ -64,9 +101,7 @@ void Tag::sajatEdzesekLekerdezese(const vector<Orarend *> &edzesek)
         }
     }
     if(van == false) {
-        cout << endl << "----------------------------------------" << endl;
         cout << "Nincs feliratkozott ora" << endl;
-        cout << "----------------------------------------" << endl;
     }
 }
 
