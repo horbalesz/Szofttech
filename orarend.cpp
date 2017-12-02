@@ -22,39 +22,44 @@ void Orarend::oraHozzaadasa() {
 
     int kezdEv, kezdHo, kezdNap, kezdOra, kezdPerc, hossz, maxLetszam;
     string sport;
-    cout << "Szokozokkel elvalasztva adja meg az ora adatait(ev/ho/nap/ora/perc/hossz/maxmimalis letszam/sport)" << endl;
-    stringstream ss;
-    string line;
-    getline(cin, line);
-
-    ss << line;
-    ss >> kezdEv >> kezdHo >> kezdNap >> kezdOra >> kezdPerc >> hossz >> maxLetszam >> sport;
-
+    cout << "Adja meg az evet: ";
+    cin >> kezdEv;
+    cout << "Adja meg a honapot: ";
+    cin >> kezdHo;
+    cout << "Adja meg a napot: ";
+    cin >> kezdNap;
+    cout << "Adja meg az orat: ";
+    cin >> kezdOra;
+    cout << "Adja meg a percet: ";
+    cin >> kezdPerc;
+    cout << "Adja meg az ora hosszat percben: ";
+    cin >> hossz;
+    cout << "Adja meg a max letszamot: ";
+    cin >> maxLetszam;
+    cout << "Adja meg a sportagat: ";
+    cin >> sport;
     ora.push_back(new Ora(kezdEv, kezdHo, kezdNap, kezdOra, kezdPerc, hossz, maxLetszam, sport));
-
     cout << "Ora hozzaadva." << endl;
 }
 
 void Orarend::oraTorlese() {
     int id;
-
     cout << "Add meg a torolni kivant ora id-jet" << endl;
     cin >> id;
     bool kapcsolo = true;
-
-    for(auto i = ora.begin(); i != ora.end(); ++i) {
-        if((*i)->getId() == id) {
-            delete *i;
-            ora.erase(i);
+    int holvan;
+    for(unsigned int i =0; i<ora.size(); ++i) {
+        if(ora[i]->getId() == id) {
             kapcsolo = false;
+            holvan = i;
         }
     }
-
     if(kapcsolo)
         cout << "Ilyen ora nincs." << endl;
-    else
+    else {
+        ora.erase(ora.begin()+holvan);
         cout << "Ora torolve." << endl;
-
+    }
 }
 
 void Orarend::felirOrara(int id) {
