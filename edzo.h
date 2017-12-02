@@ -11,7 +11,7 @@ public:
     Edzo(int id, int jelszo, string nev);
     void menu();
     void oraHozzaadasa(vector<Orarend *> &orarendek);
-    void oraTorlese(vector<Orarend *> &orarendek);
+    void oraTorlese(vector<Orarend *> &orarendek, Levelezes* levelezesek);
     void sajatOrarendMegtekintese(vector<Orarend*> &orarendek);
     int getType() const;
 };

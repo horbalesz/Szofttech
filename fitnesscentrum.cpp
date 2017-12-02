@@ -143,7 +143,7 @@ void FitnessCentrum::vegrehajt(int cmd) {
                 felhasz->oraHozzaadasa(teljesOrarend);
                 break;
             case 3:
-                felhasz->oraTorlese(teljesOrarend);
+                felhasz->oraTorlese(teljesOrarend, teljesLevelezes);
                 break;
             case 4:
                 felhasz->levelIrasa(teljesLevelezes, felhasznalok);

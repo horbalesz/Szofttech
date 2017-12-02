@@ -15,21 +15,21 @@ o Összes levél olvasása
 o Kijelentkezés
 
 Tag:
-o Teljes órarend lekérdezése
++ Teljes órarend lekérdezése
 o Edzésre feliratkozás
 o Edzésrõl leiratkozás
-o Saját órarend lekérdezése
++ Saját órarend lekérdezése
 o Napi tevékenység létrehozása
 o Elõrehaladás lekérdezése
 
 Edzõ:
-x Óra létrehozása
-x Óra törlése
-x Saját órák lekérdezése
+o Óra létrehozása
+o Óra törlése
+o Saját órák lekérdezése
 
 Admin:
-x Edzõ regisztrálása
-x Statisztikák lekérdezése
+o Edzõ regisztrálása
+o Statisztikák lekérdezése
 
 Megjegyzés:
 - -> Terv
