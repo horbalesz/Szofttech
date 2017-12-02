@@ -14,8 +14,6 @@ class Levelezes
 public:
     Levelezes();
     void levelHozzaadasa(Level* hozzaadando);
-    void levelezesKiirasa(int szemelyid) const;
-    void olvasatlanKiirasa(int szemelyid) const;
     vector<Level*> getLevelek();
 };
 

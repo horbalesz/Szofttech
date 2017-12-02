@@ -13,17 +13,18 @@ void betolt(FitnessCentrum* fc)  {
         ifstream input("felhasznalok.txt");
         if(input.is_open()) {
             int id, jelszo, type;
+            string nev;
             while(input.good()) {
-                input >> type >> id >> jelszo;
+                input >> type >> id >> jelszo >> nev;
                 switch(type) {
                     case 1:
-                        felhasznalo_tmp.push_back(new Admin(id, jelszo));
+                        felhasznalo_tmp.push_back(new Admin(id, jelszo, nev));
                         break;
                     case 2:
-                        felhasznalo_tmp.push_back(new Edzo(id, jelszo));
+                        felhasznalo_tmp.push_back(new Edzo(id, jelszo, nev));
                         break;
                     case 3:
-                        felhasznalo_tmp.push_back(new Tag(id, jelszo));
+                        felhasznalo_tmp.push_back(new Tag(id, jelszo, nev));
                         break;
                 }
             }
@@ -150,7 +151,7 @@ void ment(FitnessCentrum *fc)
         if(out.is_open()) {
             vector<Felhasznalo*> felhaszn_tmp = fc->getFelhasznalok();
             for(auto i: felhaszn_tmp) {
-                out << i->getType() << " " << i->getId() << " " << i->getJelszo();
+                out << i->getType() << " " << i->getId() << " " << i->getJelszo() << " " << i->getFelhasznaloNev();
                 if(i != felhaszn_tmp[felhaszn_tmp.size()-1])
                     out << "\n";
             }

@@ -1,11 +1,11 @@
 #include "edzo.h"
 
-Edzo::Edzo(int jelszo):
-    Felhasznalo(jelszo)
+Edzo::Edzo(int jelszo, string nev):
+    Felhasznalo(jelszo, nev)
 {}
 
-Edzo::Edzo(int id, int jelszo):
-    Felhasznalo(id, jelszo)
+Edzo::Edzo(int id, int jelszo, string nev):
+    Felhasznalo(id, jelszo, nev)
 {}
 
 void Edzo::menu() {

@@ -18,10 +18,9 @@ class Level
 public:
     Level(int kuldo, int cimzett, const string &p_uzenet);
     Level(int kuldo, int cimzett, const string &p_uzenet, bool p_olvasott);
-    int getKuldoID();
-    int getCimzettID();
+    int getKuldoID() const;
+    int getCimzettID() const;
     void setOlvasott();
-    void levelKiir();
     bool getOlvasott();
     string getUzenet() const;
 };
