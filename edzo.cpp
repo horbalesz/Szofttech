@@ -28,16 +28,32 @@ void Edzo::oraHozzaadasa(vector<Orarend*> &orarendek) {
 }
 
 void Edzo::oraTorlese(vector<Orarend*> &orarendek, Levelezes *levelezesek) {
+    bool letezik = false;
     for(auto &i : orarendek) {
-        if(i->getEdzoId() == id)
-            i->oraTorlese(levelezesek);
+        if(i->getEdzoId() == id) {
+            if(i->getOra().size()!=0) {
+                i->oraTorlese(levelezesek);
+                letezik = true;
+            }
+        }
+    }
+    if(!letezik) {
+        cout << "Nincs torolheto oraja!" << endl;
     }
 }
 
-void Edzo::sajatOrarendMegtekintese(vector<Orarend*> &orarendek) {
+void Edzo::sajatOrarendMegtekintese(vector<Orarend*> &orarendek, const vector<Felhasznalo*> felhasznalok) {
+    bool letezik = false;
     for(auto &i : orarendek) {
-        if(i->getEdzoId() == id)
-            i->orarendKiir();
+        if(i->getEdzoId() == id) {
+            if(i->getOra().size()!=0) {
+                i->orarendKiir(felhasznalok);
+                letezik = true;
+            }
+        }
+    }
+    if(!letezik) {
+        cout << "Nincs megjelenitheto oraja!" << endl;
     }
 }
 

@@ -12,7 +12,7 @@ public:
     void menu();
     void oraHozzaadasa(vector<Orarend *> &orarendek);
     void oraTorlese(vector<Orarend *> &orarendek, Levelezes* levelezesek);
-    void sajatOrarendMegtekintese(vector<Orarend*> &orarendek);
+    void sajatOrarendMegtekintese(vector<Orarend*> &orarendek, const vector<Felhasznalo*> felhasznalok);
     int getType() const;
 };
 

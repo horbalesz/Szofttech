@@ -19,18 +19,29 @@ void Admin::menu() {
         cout << "Valasz: ";
 }
 
-void Admin::edzoRegisztralasa(vector<Felhasznalo*> &felhasznalok) {
+void Admin::edzoRegisztralasa(vector<Felhasznalo*> &felhasznalok, vector<Orarend*> &orarendek) {
     int jelszo;
     string felhaszNev;
-    cout << "Az uj edzo jelszava: ";
-    cin >> jelszo;
     cout << "Az uj edzo felhasznalo neve: ";
     cin >> felhaszNev;
-    Edzo* uj = new Edzo(jelszo, felhaszNev);
-    felhasznalok.push_back(uj);
-    cout << "Uj edzo sikeresen regisztralva: " << endl;
-    cout << "Azonosito: " << uj->getId() << endl;
-    cout << "Jelszo: " << uj->getJelszo() << endl;
+    bool letezik = false;
+    for(auto i: felhasznalok) {
+        if(i->getFelhasznaloNev()==felhaszNev) {
+            letezik = true;
+        }
+    }
+    if(!letezik) {
+        cout << "Az uj edzo jelszava: ";
+        cin >> jelszo;
+        Edzo* uj = new Edzo(jelszo, felhaszNev);
+        felhasznalok.push_back(uj);
+        orarendek.push_back(new Orarend(uj->getId()));
+        cout << "Uj edzo sikeresen regisztralva: " << endl;
+        cout << "Azonosito: " << uj->getId() << endl;
+        cout << "Jelszo: " << uj->getJelszo() << endl;
+    } else {
+        cout << "Mar letezik ilyen nevu felhasznalo!" << endl;
+    }
 }
 
 void Admin::statisztikakLekerdezese(const vector<Orarend*> &edzesek, const vector<Felhasznalo *> &felhasznalok) {

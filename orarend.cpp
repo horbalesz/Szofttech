@@ -9,8 +9,14 @@ Orarend::Orarend(int edzoId):
     edzoId(edzoId)
 {}
 
-void Orarend::orarendKiir() {
-    cout << endl << edzoId << " azonositoju edzo orai:" << endl;
+void Orarend::orarendKiir(const vector<Felhasznalo*> felhasznalok) {
+    string edzoNev;
+    for(auto i : felhasznalok) {
+        if(i->getId()==edzoId) {
+            edzoNev = i->getFelhasznaloNev();
+        }
+    }
+    cout << endl << edzoNev + " edzo orai:" << endl;
     for(auto i : ora)
     {
         i->oraKiir();
@@ -68,21 +74,33 @@ void Orarend::oraTorlese(Levelezes* levelezesek) {
 
 void Orarend::felirOrara(int id) {
     int oraID;
-    cout << "(Feliratkozas) Add meg az ora azonositojat: ";
+    cout << "Add meg az ora azonositojat: ";
     cin >> oraID;
+    bool letezikOra = false;
     for(auto &i : ora) {
-        if(i->getId() == oraID)
+        if(i->getId() == oraID) {
             i->feliratkoztat(id);
+            letezikOra = true;
+        }
+    }
+    if(!letezikOra) {
+        cout << "Nincs ilyen ora!" << endl;
     }
 }
 
 void Orarend::leirOrarol(int id) {
     int oraID;
-    cout << "(Leiratkozas) Add meg az ora azonositojat: ";
+    cout << "Add meg az ora azonositojat: ";
     cin >> oraID;
+    bool letezikOra = false;
     for(auto &i : ora) {
-        if(i->getId() == oraID)
+        if(i->getId() == oraID) {
             i->leiratkoztat(id);
+            letezikOra=true;
+        }
+    }
+    if(!letezikOra) {
+        cout << "Nincs ilyen ora!" << endl;
     }
 }
 

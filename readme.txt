@@ -2,38 +2,40 @@ Funkciók:
 
 Rendszer:
 + Menü
+* Bezárás
+- Memoriaszemét!!
 
 Látogató:
 + Bejelentkezés
-o Regisztráció
-o Edzések megtekintése
++ Regisztráció
++ Edzések megtekintése
 
 Felhasználó:
-o Levélküldés
-o Olvasattlan levél olvasása
-o Összes levél olvasása
-o Kijelentkezés
++ Levélküldés
++ Olvasattlan levél olvasása
++ Összes levél olvasása
+* Kijelentkezés
 
 Tag:
 + Teljes órarend lekérdezése
-o Edzésre feliratkozás
-o Edzésrõl leiratkozás
-+ Saját órarend lekérdezése
-o Napi tevékenység létrehozása
-o Elõrehaladás lekérdezése
++ Edzésre feliratkozás
++ Edzésrõl leiratkozás
+o Saját órarend lekérdezése : Edzo nevét ki kéne írni, hogy tudja a leiratkozáskor.
++ Napi tevékenység hozzáadása
++ Elõrehaladás lekérdezése : Kalóriaszámlálás??
 
 Edzõ:
-o Óra létrehozása
-o Óra törlése
-o Saját órák lekérdezése
++ Óra létrehozása
++ Óra törlése
++ Saját órák lekérdezése
 
 Admin:
-o Edzõ regisztrálása
-o Statisztikák lekérdezése
++ Edzõ regisztrálása
+* Statisztikák lekérdezése
 
 Megjegyzés:
 - -> Terv
 x -> Implementált
 o -> Müködõ
-+ -> Tesztelt (felhasználó barát)
++ -> Felhasználó barát
 * -> Idiot-proof (bármilyen inputot kezel)
