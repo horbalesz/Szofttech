@@ -3,7 +3,7 @@ Funkciók:
 Rendszer:
 + Menü
 * Bezárás
-- Memoriaszemét!!
+- Memoriaszemét kezelés
 
 Látogató:
 + Bejelentkezés
@@ -20,9 +20,9 @@ Tag:
 + Teljes órarend lekérdezése
 + Edzésre feliratkozás
 + Edzésrõl leiratkozás
-o Saját órarend lekérdezése : Edzo nevét ki kéne írni, hogy tudja a leiratkozáskor.
+o Saját órarend lekérdezése
 + Napi tevékenység hozzáadása
-+ Elõrehaladás lekérdezése : Kalóriaszámlálás??
++ Elõrehaladás lekérdezése
 
 Edzõ:
 + Óra létrehozása
