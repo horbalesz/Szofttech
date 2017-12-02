@@ -9,16 +9,17 @@ Tag::Tag(int id, int jelszo):
 {}
 
 void Tag::menu() {
-    cout << "1 - Edzesek megjelenitese" << endl;
-    cout << "2 - Orara feliratkozas" << endl;
-    cout << "3 - Orarol leiratkozas" << endl;
-    cout << "4 - Napi tevekenyseg megadasa" << endl;
-    cout << "5 - Elorehaladas lekerdezese" << endl;
-    cout << "6 - Level kuldese" << endl;
-    cout << "7 - Olvasatlan levelek olvasasa" << endl;
-    cout << "8 - Osszes level olvasasa" << endl;
+    cout << endl << "1 - Edzesek megjelenitese" << endl;
+    cout << "2 - Sajat orarend megjelenitese" << endl;
+    cout << "3 - Orara feliratkozas" << endl;
+    cout << "4 - Orarol leiratkozas" << endl;
+    cout << "5 - Napi tevekenyseg megadasa" << endl;
+    cout << "6 - Elorehaladas lekerdezese" << endl;
+    cout << "7 - Level kuldese" << endl;
+    cout << "8 - Olvasatlan levelek olvasasa" << endl;
+    cout << "9 - Osszes level olvasasa" << endl;
     cout << "x - Kilepes" << endl;
-    cout << "Valassz: ";
+    cout << "Valasz: ";
 }
 
 void Tag::edzesreFeliratkozas(vector<Orarend*> &edzesek) {
@@ -41,6 +42,23 @@ void Tag::edzesrolLeiratkozas(vector<Orarend*> &edzesek) {
     for(auto &i : edzesek) {
         if(i->getEdzoId() == edzoId)
             i->leirOrarol(id);
+    }
+}
+
+void Tag::sajatEdzesekLekerdezese(const vector<Orarend *> &edzesek)
+{
+    for(auto i : edzesek) {
+        vector<Ora*> orak = i->getOra();
+        for(auto j : orak) {
+            vector<int> felirtak = j->getFeliratkozottak();
+            for(auto k : felirtak) {
+                if(k == id) {
+                    cout << endl;
+                    j->oraKiir();
+                    cout << endl;
+                }
+            }
+        }
     }
 }
 

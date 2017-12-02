@@ -18,7 +18,7 @@ public:
     void menu();
     void edzesreFeliratkozas(vector<Orarend *> &edzesek);
     void edzesrolLeiratkozas(vector<Orarend*> &edzesek);
-    void edzesekLekerdezese(const vector<Orarend*> &edzesek);
+    void sajatEdzesekLekerdezese(const vector<Orarend*> &edzesek);
     void elorehaladasLekerdezese(vector<EloreHaladas*> &sportNaplo);
     void napiTevekenysegHozzaadasa(vector<EloreHaladas*> &sportNaplo);
     int getType() const;
