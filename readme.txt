@@ -1,4 +1,38 @@
-commit test
-then commit test 2
-maybe 3 ?
+Funkciók: 
 
+Rendszer:
+o Menü
+
+Látogató:
+o Bejelentkezés
+o Regisztráció
+o Edzések megtekintése
+
+Felhasználó:
+o Levélküldés
+o Olvasattlan levél olvasása
+o Összes levél olvasása
+-Kijelentkezés
+
+Tag:
+o Teljes órarend lekérdezése
+o Edzésre feliratkozás
+o Edzésrõl leiratkozás
+o Saját órarend lekérdezése
+o Napi tevékenység létrehozása
+o Elõrehaladás lekérdezése
+
+Edzõ:
+x Óra létrehozása
+x Óra törlése
+x Saját órák lekérdezése
+
+Admin:
+x Edzõ regisztrálása
+x Statisztikák lekérdezése
+
+Megjegyzés:
+- -> Terv
+x -> Implementált
+o -> Müködõ
++ -> Tesztelt (felhasználó barát)
