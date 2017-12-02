@@ -19,15 +19,25 @@ int Felhasznalo::getJelszo() const {
     return jelszo;
 }
 
-void Felhasznalo::levelIrasa(Levelezes *levelek) {
+void Felhasznalo::levelIrasa(Levelezes *levelek,  vector<Felhasznalo *> &felhasznalok) {
     cout << "Level irasa" << endl << "Cimzett kodja: ";
     int cimzett;
     cin >> cimzett;
-    cout << "uzenet: (enterrel kuldes)" << endl;
-    string uzi = "";
-    while(uzi == "")
-        getline(cin, uzi);
-    levelek->levelHozzaadasa(new Level(id, cimzett, uzi));
+    bool letezik = 0;
+    for(auto i : felhasznalok) {
+        if(i->getId()==cimzett) {
+            letezik = true;
+        }
+    }
+    if(letezik) {
+        cout << "uzenet: (enterrel kuldes)" << endl;
+        string uzi = "";
+        while(uzi == "")
+            getline(cin, uzi);
+        levelek->levelHozzaadasa(new Level(id, cimzett, uzi));
+    } else {
+        cout << "Nincs ilyen felhasznalo!" << endl;
+    }
 }
 
 void Felhasznalo::olvasatlanOlvasasa(Levelezes *levelek) {

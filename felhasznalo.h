@@ -15,7 +15,7 @@ public:
     virtual int getType() const = 0;
     int getId() const;
     int getJelszo() const;
-    void levelIrasa(Levelezes* levelek);
+    void levelIrasa(Levelezes* levelek,  vector<Felhasznalo*> &felhasznalok);
     void olvasatlanOlvasasa(Levelezes* levelek);
     void teljesOlvasasa(Levelezes* levelek);
 };
