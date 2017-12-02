@@ -1,11 +1,11 @@
 #include "tag.h"
 
-Tag::Tag(int jelszo):
-    Felhasznalo(jelszo)
+Tag::Tag(int jelszo, string nev):
+    Felhasznalo(jelszo, nev)
 {}
 
-Tag::Tag(int id, int jelszo):
-    Felhasznalo(id, jelszo)
+Tag::Tag(int id, int jelszo, string nev):
+    Felhasznalo(id, jelszo, nev)
 {}
 
 void Tag::menu() {
@@ -18,7 +18,8 @@ void Tag::menu() {
     cout << "7 - Level kuldese" << endl;
     cout << "8 - Olvasatlan levelek olvasasa" << endl;
     cout << "9 - Osszes level olvasasa" << endl;
-    cout << "x - Kilepes" << endl;
+    cout << "10 - Kijelentkezes" << endl;
+    cout << "x - Bezaras" << endl;
     cout << "Valasz: ";
 }
 
@@ -47,6 +48,7 @@ void Tag::edzesrolLeiratkozas(vector<Orarend*> &edzesek) {
 
 void Tag::sajatEdzesekLekerdezese(const vector<Orarend *> &edzesek)
 {
+    bool van = false;
     for(auto i : edzesek) {
         vector<Ora*> orak = i->getOra();
         for(auto j : orak) {
@@ -56,9 +58,15 @@ void Tag::sajatEdzesekLekerdezese(const vector<Orarend *> &edzesek)
                     cout << endl;
                     j->oraKiir();
                     cout << endl;
+                    van=true;
                 }
             }
         }
+    }
+    if(van == false) {
+        cout << endl << "----------------------------------------" << endl;
+        cout << "Nincs feliratkozott ora" << endl;
+        cout << "----------------------------------------" << endl;
     }
 }
 

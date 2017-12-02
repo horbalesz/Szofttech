@@ -51,19 +51,25 @@ void EloreHaladas::tevekenysegekHozzaadasa() {
 }
 
 void EloreHaladas::osszegez() {
-    cout << "Tevekenysegek: " << endl << endl;
-    int osszIdotartam = 0, kezdoSuly, jelenlegiSuly;
-    for(auto it = tevekenysegek.begin(); it != tevekenysegek.end(); ++it) {
-        (*it)->tevekenysegKiir();
-        cout << endl;
-        osszIdotartam+=(*it)->getIdotartam();
+    if(!tevekenysegek.empty()) {
+        cout << "Tevekenysegek: " << endl << endl;
+        int osszIdotartam = 0, kezdoSuly, jelenlegiSuly;
+        for(auto it = tevekenysegek.begin(); it != tevekenysegek.end(); ++it) {
+            (*it)->tevekenysegKiir();
+            cout << endl;
+            osszIdotartam+=(*it)->getIdotartam();
+        }
+        kezdoSuly = (*(tevekenysegek.begin()))->getSuly();
+        jelenlegiSuly = (tevekenysegek.back())->getSuly();
+        cout << "Ossz sportolt ido: " << osszIdotartam << endl;
+        cout << "Kezdeti suly: " << kezdoSuly << endl;
+        cout << "Jelenlegi suly: " << jelenlegiSuly << endl;
+        cout << "Cel suly: " << cel << endl;
+    } else {
+        cout << endl << "----------------------------------------" << endl;
+        cout << "Nincs meg napi tevekenysege megadva." << endl;
+        cout << "----------------------------------------" << endl;
     }
-    kezdoSuly = (*(tevekenysegek.begin()))->getSuly();
-    jelenlegiSuly = (tevekenysegek.back())->getSuly();
-    cout << "Ossz sportolt ido: " << osszIdotartam << endl;
-    cout << "Kezdeti suly: " << kezdoSuly << endl;
-    cout << "Jelenlegi suly: " << jelenlegiSuly << endl;
-    cout << "Cel suly: " << cel << endl;
 }
 
 void EloreHaladas::tevekenysegBetoltese(NapiTevekenyseg* nt) {

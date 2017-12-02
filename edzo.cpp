@@ -1,11 +1,11 @@
 #include "edzo.h"
 
-Edzo::Edzo(int jelszo):
-    Felhasznalo(jelszo)
+Edzo::Edzo(int jelszo, string nev):
+    Felhasznalo(jelszo, nev)
 {}
 
-Edzo::Edzo(int id, int jelszo):
-    Felhasznalo(id, jelszo)
+Edzo::Edzo(int id, int jelszo, string nev):
+    Felhasznalo(id, jelszo, nev)
 {}
 
 void Edzo::menu() {
@@ -15,7 +15,8 @@ void Edzo::menu() {
     cout << "4 - Level kuldese" << endl;
     cout << "5 - Olvasatlan levelek olvasasa" << endl;
     cout << "6 - Osszes level olvasasa" << endl;
-    cout << "x - Kilepes" << endl;
+    cout << "7 - Kijelentkezes" << endl;
+    cout << "x - Bezaras" << endl;
     cout << "Valasz: ";
 }
 
@@ -26,10 +27,10 @@ void Edzo::oraHozzaadasa(vector<Orarend*> &orarendek) {
     }
 }
 
-void Edzo::oraTorlese(vector<Orarend*> &orarendek) {
+void Edzo::oraTorlese(vector<Orarend*> &orarendek, Levelezes *levelezesek) {
     for(auto &i : orarendek) {
         if(i->getEdzoId() == id)
-            i->oraTorlese();
+            i->oraTorlese(levelezesek);
     }
 }
 

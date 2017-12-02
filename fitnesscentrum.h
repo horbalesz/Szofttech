@@ -37,6 +37,7 @@ public:
     void regisztracio();
     void vegrehajt(int cmd);
     void start();
+    void kijelentkezes();
 
 };
 

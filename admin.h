@@ -12,8 +12,8 @@ using namespace std;
 class Admin: public Felhasznalo
 {
 public:
-    Admin(int jelszo);
-    Admin(int id, int jelszo);
+    Admin(int jelszo, string nev);
+    Admin(int id, int jelszo, string nev);
     void menu();
     void edzoRegisztralasa(vector<Felhasznalo*> &felhasznalok);
     void statisztikakLekerdezese(const vector<Orarend*> &edzesek, const vector<Felhasznalo*> &felhasznalok);

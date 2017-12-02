@@ -1,9 +1,9 @@
 #ifndef ORAREND_H
 #define ORAREND_H
-//#include "tag.h"
 
 #include <sstream>
 
+#include "levelezes.h"
 #include "ora.h"
 
 using namespace std;
@@ -16,7 +16,7 @@ public:
     Orarend(int edzoId);
     void orarendKiir();
     void oraHozzaadasa();
-    void oraTorlese();
+    void oraTorlese(Levelezes *levelezesek);
     void felirOrara(int id);
     void leirOrarol(int id);
     int getEdzoId() const;

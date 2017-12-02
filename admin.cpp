@@ -1,11 +1,11 @@
 #include "admin.h"
 
-Admin::Admin(int jelszo):
-    Felhasznalo(jelszo)
+Admin::Admin(int jelszo, string nev):
+    Felhasznalo(jelszo, nev)
 {}
 
-Admin::Admin(int id, int jelszo):
-    Felhasznalo(id, jelszo)
+Admin::Admin(int id, int jelszo, string nev):
+    Felhasznalo(id, jelszo, nev)
 {}
 
 void Admin::menu() {
@@ -14,15 +14,23 @@ void Admin::menu() {
         cout << "3 - Level kuldese" << endl;
         cout << "4 - Olvasatlan levelek olvasasa" << endl;
         cout << "5 - Osszes level olvasasa" << endl;
-        cout << "x - Kilepes" << endl;
+        cout << "6 - Kijelenetkezes" << endl;
+        cout << "x - Bezaras" << endl;
         cout << "Valasz: ";
 }
 
 void Admin::edzoRegisztralasa(vector<Felhasznalo*> &felhasznalok) {
-    cout << "Az uj edzo jelszava: ";
     int jelszo;
+    string felhaszNev;
+    cout << "Az uj edzo jelszava: ";
     cin >> jelszo;
-    felhasznalok.push_back(new Edzo(jelszo));
+    cout << "Az uj edzo felhasznalo neve: ";
+    cin >> felhaszNev;
+    Edzo* uj = new Edzo(jelszo, felhaszNev);
+    felhasznalok.push_back(uj);
+    cout << "Uj edzo sikeresen regisztralva: " << endl;
+    cout << "Azonosito: " << uj->getId() << endl;
+    cout << "Jelszo: " << uj->getJelszo() << endl;
 }
 
 void Admin::statisztikakLekerdezese(const vector<Orarend*> &edzesek, const vector<Felhasznalo *> &felhasznalok) {

@@ -80,7 +80,7 @@ void Ora::feliratkoztat(int id) {
         cout << "Mar fel vagy iratkozva erre az orara!" << endl;
     else {
         feliratkozottak.push_back(id);
-        cout << "Feliratkozas sikeres." << endl;
+        cout << "(Feliratkozas) Sikeres." << endl;
     }
 }
 
@@ -93,8 +93,9 @@ void Ora::leiratkoztat(int id) {
         i++;
     }
 
-    if(holvan!=-1)
-        feliratkozottak.erase(feliratkozottak.begin()+holvan); //potenciális hiba
-    else
+    if(holvan!=-1) {
+        feliratkozottak.erase(feliratkozottak.begin()+holvan);
+        cout << "(Leiratkozas) Sikeres." << endl;
+    } else
         cout << "Nem is vagy feliratkozva erre az orara!" << endl;
 }
