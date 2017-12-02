@@ -1,11 +1,11 @@
 #include "tag.h"
 
-Tag::Tag(int jelszo):
-    Felhasznalo(jelszo)
+Tag::Tag(int jelszo, string nev):
+    Felhasznalo(jelszo, nev)
 {}
 
-Tag::Tag(int id, int jelszo):
-    Felhasznalo(id, jelszo)
+Tag::Tag(int id, int jelszo, string nev):
+    Felhasznalo(id, jelszo, nev)
 {}
 
 void Tag::menu() {

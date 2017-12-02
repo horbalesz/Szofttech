@@ -52,12 +52,13 @@ void FitnessCentrum::setFelhasznalok(vector<Felhasznalo *>  &p_felhasznalok) {
 }
 
 void FitnessCentrum::bejelentkezes() {
-    int id, jelszo;
-    cout << "Adja meg az azonositojat!" << endl;
-    cin >> id;
+    int jelszo;
+    string felhaszNev;
+    cout << "Adja meg a felhasznalo nevet!" << endl;
+    cin >> felhaszNev;
     Felhasznalo* talaltFelhasznalo= 0;
     for(auto i : felhasznalok) {
-        if(i->getId()==id) {
+        if(i->getFelhasznaloNev()==felhaszNev) {
             talaltFelhasznalo = i;
         }
     }
@@ -90,11 +91,14 @@ void FitnessCentrum::bejelentkezes() {
 
 void FitnessCentrum::regisztracio() {
     int jelszo, suly;
+    string felhaszNev;
+    cout << "Adja meg a felhasznalo nevet!" << endl;
+    cin >> felhaszNev;
     cout << "Adja meg a negyjegyu pinkodjat!" << endl;
     cin >> jelszo;
     cout << "Adja meg a celsulyt amit el szeretne erni: ";
     cin >> suly;
-    felhasznalok.push_back(new Tag(jelszo));
+    felhasznalok.push_back(new Tag(jelszo, felhaszNev));
     bejelentkezettFelhasznalo = felhasznalok.back();
     teljesSportnaplo.push_back(new EloreHaladas(bejelentkezettFelhasznalo->getId(),suly));
     cout << endl << "Az on azonositoja: " << bejelentkezettFelhasznalo->getId() << endl;
@@ -117,10 +121,10 @@ void FitnessCentrum::vegrehajt(int cmd) {
                 felhasz->levelIrasa(teljesLevelezes, felhasznalok);
                 break;
             case 4:
-                felhasz->olvasatlanOlvasasa(teljesLevelezes);
+                felhasz->olvasatlanOlvasasa(teljesLevelezes, felhasznalok);
                 break;
             case 5:
-                felhasz->teljesOlvasasa(teljesLevelezes);
+                felhasz->teljesOlvasasa(teljesLevelezes, felhasznalok);
                 break;
             case 6:
                 kijelentkezes();
@@ -145,10 +149,10 @@ void FitnessCentrum::vegrehajt(int cmd) {
                 felhasz->levelIrasa(teljesLevelezes, felhasznalok);
                 break;
             case 5:
-                felhasz->olvasatlanOlvasasa(teljesLevelezes);
+                felhasz->olvasatlanOlvasasa(teljesLevelezes, felhasznalok);
                 break;
             case 6:
-                felhasz->teljesOlvasasa(teljesLevelezes);
+                felhasz->teljesOlvasasa(teljesLevelezes, felhasznalok);
                 break;
             case 7:
                 kijelentkezes();
@@ -182,10 +186,10 @@ void FitnessCentrum::vegrehajt(int cmd) {
                 felhasz->levelIrasa(teljesLevelezes, felhasznalok);
                 break;
             case 8:
-                felhasz->olvasatlanOlvasasa(teljesLevelezes);
+                felhasz->olvasatlanOlvasasa(teljesLevelezes, felhasznalok);
                 break;
             case 9:
-                felhasz->teljesOlvasasa(teljesLevelezes);
+                felhasz->teljesOlvasasa(teljesLevelezes, felhasznalok);
                 break;
             case 10:
                 kijelentkezes();
