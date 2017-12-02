@@ -81,7 +81,7 @@ void Ora::feliratkoztat(int id) {
         cout << "Mar fel vagy iratkozva erre az orara!" << endl;
     else {
         feliratkozottak.push_back(id);
-        cout << "Feliratkozas sikeres." << endl;
+        cout << "(Feliratkozas) Sikeres." << endl;
     }
 }
 

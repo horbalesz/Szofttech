@@ -1,41 +1,41 @@
-FunkciÛk: 
+Funkci√≥k: 
 
 Rendszer:
-+ Men¸
-* Bez·r·s
-- MemoriaszemÈt kezelÈs
++ Men√º
+* Bez√°r√°s
+- Memoriaszem√©t kezel√©s
 
-L·togatÛ:
-+ BejelentkezÈs
-+ Regisztr·ciÛ
-+ EdzÈsek megtekintÈse
+L√°togat√≥:
++ Bejelentkez√©s
++ Regisztr√°ci√≥
++ Edz√©sek megtekint√©se
 
-Felhaszn·lÛ:
-+ LevÈlk¸ldÈs
-+ Olvasattlan levÈl olvas·sa
-+ ÷sszes levÈl olvas·sa
-* KijelentkezÈs
+Felhaszn√°l√≥:
++ Lev√©lk√ºld√©s
++ Olvasattlan lev√©l olvas√°sa
++ √ñsszes lev√©l olvas√°sa
+* Kijelentkez√©s
 
 Tag:
-+ Teljes Ûrarend lekÈrdezÈse
-+ EdzÈsre feliratkoz·s
-+ EdzÈsrıl leiratkoz·s
-o Saj·t Ûrarend lekÈrdezÈse
-+ Napi tevÈkenysÈg hozz·ad·sa
-+ Elırehalad·s lekÈrdezÈse
++ Teljes √≥rarend lek√©rdez√©se
++ Edz√©sre feliratkoz√°s
++ Edz√©sr≈ël leiratkoz√°s
+o Saj√°t √≥rarend lek√©rdez√©se
++ Napi tev√©kenys√©g hozz√°ad√°sa
++ El≈ërehalad√°s lek√©rdez√©se
 
-Edzı:
-+ ”ra lÈtrehoz·sa
-+ ”ra tˆrlÈse
-+ Saj·t Ûr·k lekÈrdezÈse
+Edz≈ë:
++ √ìra l√©trehoz√°sa
++ √ìra t√∂rl√©se
++ Saj√°t √≥r√°k lek√©rdez√©se
 
 Admin:
-+ Edzı regisztr·l·sa
-* Statisztik·k lekÈrdezÈse
++ Edz≈ë regisztr√°l√°sa
+* Statisztik√°k lek√©rdez√©se
 
-MegjegyzÈs:
+Megjegyz√©s:
 - -> Terv
-x -> Implement·lt
-o -> M¸kˆdı
-+ -> Felhaszn·lÛ bar·t
-* -> Idiot-proof (b·rmilyen inputot kezel)
+x -> Implement√°lt
+o -> M√ºk√∂d≈ë
++ -> Felhaszn√°l√≥ bar√°t
+* -> Idiot-proof (b√°rmilyen inputot kezel)

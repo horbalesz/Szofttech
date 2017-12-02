@@ -19,6 +19,7 @@ void Admin::menu() {
         cout << "Valasz: ";
 }
 
+
 void Admin::edzoRegisztralasa(vector<Felhasznalo*> &felhasznalok, vector<Orarend*> &orarendek) {
     int jelszo;
     string felhaszNev;

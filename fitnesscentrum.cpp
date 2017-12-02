@@ -61,6 +61,17 @@ void FitnessCentrum::bejelentkezes() {
         if(i->getFelhasznaloNev()==felhaszNev) {
             talaltFelhasznalo = i;
         }
+        cout << "Bejelentkezes " << talaltFelhasznalo->getId() << " azonositoju " + tipus + "kent." << endl;
+        cout << "Adja meg a jelszavat!" << endl;
+        cin >> jelszo;
+        if(talaltFelhasznalo->getJelszo()==jelszo) {
+            bejelentkezettFelhasznalo=talaltFelhasznalo;
+            cout << "Sikeres bejelentkezes!" << endl;
+        } else {
+            cout << "Helytelen jelszo!" << endl;
+        }
+    } else {
+        cout << "Nincs ilyen azonositoju felhasznalo!" << endl;
     }
     if(talaltFelhasznalo) {
         string tipus;
