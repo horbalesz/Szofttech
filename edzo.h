@@ -7,8 +7,8 @@
 class Edzo: public Felhasznalo
 {
 public:
-    Edzo(int jelszo);
-    Edzo(int id, int jelszo);
+    Edzo(int jelszo, string nev);
+    Edzo(int id, int jelszo, string nev);
     void menu();
     void oraHozzaadasa(vector<Orarend *> &orarendek);
     void oraTorlese(vector<Orarend *> &orarendek);
