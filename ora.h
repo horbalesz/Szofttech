@@ -25,6 +25,9 @@ public:
     string oraMent();
     string feliratkozottakMent();
     vector<int> getFeliratkozottak() const;
+    int getLetszam();
+    string getSport() const;
+    int getDatum() const;
 };
 
 #endif // ORA_H

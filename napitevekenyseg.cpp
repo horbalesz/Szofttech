@@ -13,6 +13,16 @@ string NapiTevekenyseg::getSport() {
     return sport;
 }
 
+int NapiTevekenyseg::getSportType()
+{
+    if(sport == "pilates")
+        return 0;
+    else if(sport == "aerobic")
+        return 1;
+    else
+        return 2; // kangoo
+}
+
 int NapiTevekenyseg::getIdotartam() {
     return idotartam;
 }
@@ -30,15 +40,20 @@ bool NapiTevekenyseg::datumEllenoriz(int p_ev, int p_honap, int p_nap) {
 }
 
 string NapiTevekenyseg::getDatum() {
-    string datum;
-    datum = to_string(ev) + "." + to_string(honap) + "." + to_string(nap);
-    return datum;
+    return to_string(ev) + "." + to_string(honap) + "." + to_string(nap);
 }
 
 void NapiTevekenyseg::tevekenysegKiir() {
     cout << "Datum: " << getDatum() << endl;
-    cout << "Sport: " << getSport() << endl;
-    cout << "Idotartam: " << getIdotartam() << endl;
+    cout << "Sport: " << sport << endl;
+    cout << "Idotartam: " << idotartam << endl;
+    int kaloria;
+    switch(getSportType()) {
+    case 0: kaloria=225*((double)idotartam/60); break;
+    case 1: kaloria=430*((double)idotartam/60); break;
+    case 2: kaloria=530*((double)idotartam/60); break;
+    }
+    cout << "Elegetett kaloria: " << kaloria << endl;
 }
 
 string NapiTevekenyseg::tevekenysegMent()

@@ -16,6 +16,7 @@ class EloreHaladas
     vector<NapiTevekenyseg*> tevekenysegek;
 public:
     EloreHaladas(int p_tagID, int p_cel);
+    ~EloreHaladas();
     int getTagID();
     void tevekenysegekHozzaadasa();
     void osszegez();

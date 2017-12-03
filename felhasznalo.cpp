@@ -1,12 +1,12 @@
 #include "felhasznalo.h"
 
-Felhasznalo::Felhasznalo(int jelszo,string &nev):
+Felhasznalo::Felhasznalo(int jelszo, const string &nev):
     id(IdBox::getInstance().giveId()),
     jelszo(jelszo),
     felhasznaloNev(nev)
 {}
 
-Felhasznalo::Felhasznalo(int id, int jelszo, string &nev):
+Felhasznalo::Felhasznalo(int id, int jelszo,const string &nev):
     id(id),
     jelszo(jelszo),
     felhasznaloNev(nev)

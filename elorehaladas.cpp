@@ -15,6 +15,13 @@ EloreHaladas::EloreHaladas(int p_tagID, int p_cel):
     cel(p_cel)
 {}
 
+EloreHaladas::~EloreHaladas()
+{
+    for(auto &i: tevekenysegek) {
+        delete i;
+    }
+}
+
 int EloreHaladas::getTagID() {
     return tagID;
 }
@@ -60,15 +67,21 @@ void EloreHaladas::tevekenysegekHozzaadasa() {
 void EloreHaladas::osszegez() {
     if(!tevekenysegek.empty()) {
         cout << "Tevekenysegek: " << endl << endl;
-        int osszIdotartam = 0, kezdoSuly, jelenlegiSuly;
+        int osszIdotartam = 0, kezdoSuly, jelenlegiSuly, osszKaloria=0;
         for(auto it = tevekenysegek.begin(); it != tevekenysegek.end(); ++it) {
             (*it)->tevekenysegKiir();
             cout << endl;
             osszIdotartam+=(*it)->getIdotartam();
+            switch((*it)->getSportType()) {
+            case 0: osszKaloria+=225*((double)(*it)->getIdotartam()/60); break;
+            case 1: osszKaloria+=430*((double)(*it)->getIdotartam()/60); break;
+            case 2: osszKaloria+=530*((double)(*it)->getIdotartam()/60); break;
+            }
         }
         kezdoSuly = (*(tevekenysegek.begin()))->getSuly();
         jelenlegiSuly = (tevekenysegek.back())->getSuly();
         cout << "Ossz sportolt ido: " << osszIdotartam << endl;
+        cout << "Osszesen " << osszKaloria << " kaloriat egetett el." << endl;
         cout << "Kezdeti suly: " << kezdoSuly << endl;
         cout << "Jelenlegi suly: " << jelenlegiSuly << endl;
         cout << "Cel suly: " << cel << endl;

@@ -13,6 +13,7 @@ class NapiTevekenyseg
 public:
     NapiTevekenyseg(string& p_sport, int p_idotartam, int p_ev, int p_honap, int p_nap, int p_suly);
     string getSport();
+    int getSportType();
     int getIdotartam();
     int getSuly();
     bool datumEllenoriz(int p_ev, int p_honap, int p_nap);

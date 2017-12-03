@@ -162,7 +162,7 @@ void ment(FitnessCentrum *fc)
     { //levelek elmentése
         ofstream out("levelek.txt");
         if(out.is_open()) {
-            vector<Level*> level_tmp = fc->getLevelezes()->getLevelek();
+            vector<Level*> level_tmp = fc->getTeljesLevelezes()->getLevelek();
             for(auto i: level_tmp) {
                 out << i->getKuldoID() << " " << i->getCimzettID() << " " << i->getOlvasott() << "\n" << i->getUzenet();
                 if(i != level_tmp[level_tmp.size()-1])

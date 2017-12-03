@@ -4,6 +4,18 @@ FitnessCentrum::FitnessCentrum():
     bejelentkezettFelhasznalo(0)
 {}
 
+FitnessCentrum::~FitnessCentrum()
+{
+    delete bejelentkezettFelhasznalo;
+    delete teljesLevelezes;
+    for(auto &i: teljesOrarend)
+        delete i;
+    for(auto &i: teljesSportnaplo)
+        delete i;
+    for(auto &i: felhasznalok)
+        delete i;
+}
+
 vector<Orarend *> &FitnessCentrum::getTeljesOrarend() {
     return teljesOrarend;
 }
@@ -16,7 +28,7 @@ vector<Felhasznalo *> &FitnessCentrum::getFelhasznalok() {
     return felhasznalok;
 }
 
-Levelezes *FitnessCentrum::getLevelezes() {
+Levelezes *FitnessCentrum::getTeljesLevelezes() {
     return teljesLevelezes;
 }
 
@@ -75,7 +87,7 @@ void FitnessCentrum::bejelentkezes() {
             tipus = "tag";
             break;
         }
-        cout << "Bejelentkezes " << talaltFelhasznalo->getId() << " azonositoju " + tipus + "kent." << endl;
+        cout << "Bejelentkezes " << talaltFelhasznalo->getFelhasznaloNev() << " felhasznalonevu " + tipus + "kent." << endl;
         cout << "Adja meg a jelszavat!" << endl;
         cin >> jelszo;
         if(talaltFelhasznalo->getJelszo()==jelszo) {

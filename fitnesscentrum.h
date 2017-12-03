@@ -23,10 +23,11 @@ class FitnessCentrum
     Levelezes* teljesLevelezes;
 public:
     FitnessCentrum();
+    ~FitnessCentrum();
     vector<Orarend*>& getTeljesOrarend();
     vector<EloreHaladas*>& getTeljesSportnaplo();
     vector<Felhasznalo*>& getFelhasznalok();
-    Levelezes* getLevelezes();
+    Levelezes* getTeljesLevelezes();
     void orarendekKiir();
     void latogatoMenu();
     void setTeljesOrarend(vector<Orarend *> &p_orarend);

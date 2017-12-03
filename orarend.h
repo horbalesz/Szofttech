@@ -15,10 +15,11 @@ class Orarend
     vector<Ora*> ora;
 public:
     Orarend(int edzoId);
+    ~Orarend();
     void orarendKiir(const vector<Felhasznalo*> felhasznalok);
     void oraHozzaadasa();
     void oraTorlese(Levelezes *levelezesek);
-    void felirOrara(int id);
+    void felirOrara(int id, const vector<Orarend *> &edzesek, vector<Felhasznalo *> felhasznalok);
     void leirOrarol(int id);
     int getEdzoId() const;
     int orakSzama();

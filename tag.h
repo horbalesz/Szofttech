@@ -13,8 +13,8 @@ class Tag: public Felhasznalo
 {
     int cel;
 public:
-    Tag(int jelszo,string nev);
-    Tag(int id, int jelszo, string nev);
+    Tag(int jelszo, const string &nev);
+    Tag(int id, int jelszo, const string &nev);
     void menu();
     void edzesreFeliratkozas(vector<Orarend *> &edzesek, const vector<Felhasznalo*> felhasznalok);
     void edzesrolLeiratkozas(vector<Orarend*> &edzesek, const vector<Felhasznalo *> felhasznalok);

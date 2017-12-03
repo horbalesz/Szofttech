@@ -9,6 +9,12 @@ Orarend::Orarend(int edzoId):
     edzoId(edzoId)
 {}
 
+Orarend::~Orarend()
+{
+    for(auto &i: ora)
+        delete i;
+}
+
 void Orarend::orarendKiir(const vector<Felhasznalo*> felhasznalok) {
     string edzoNev;
     for(auto i : felhasznalok) {
@@ -65,22 +71,43 @@ void Orarend::oraTorlese(Levelezes* levelezesek) {
     else {
         vector<int> fel_tmp = ora[holvan]->getFeliratkozottak();
         for(auto i :fel_tmp) {
-            levelezesek->levelHozzaadasa(new Level(edzoId, i,"Elnezest, a(z) " + to_string(ora[holvan]->getId()) + " azonositoju ora torlesre kerult."));
+            levelezesek->levelHozzaadasa(new Level(edzoId, i,"Sajnalom, a(z) " + to_string(ora[holvan]->getId()) + " azonositoju ora torlesre kerult."));
         }
         ora.erase(ora.begin()+holvan);
         cout << "Ora torolve." << endl;
     }
 }
 
-void Orarend::felirOrara(int id) {
+void Orarend::felirOrara(int id, const vector<Orarend*> &edzesek, vector<Felhasznalo*> felhasznalok) {
     int oraID;
     cout << "Add meg az ora azonositojat: ";
     cin >> oraID;
     bool letezikOra = false;
     for(auto &i : ora) {
         if(i->getId() == oraID) {
-            i->feliratkoztat(id);
-            letezikOra = true;
+            int datum = i->getDatum();
+            string sport = i->getSport();
+            if(i->getLetszam()!=0) {
+                i->feliratkoztat(id);
+                letezikOra = true;
+            } else {
+                cout << "Ez az ora mar betelt, de probalja meg a kovetkezoket:" << endl << endl;
+                for(auto i: edzesek) {
+                    vector<Ora*> orak = i->getOra();
+                    for(auto j: orak) {
+                        if((j->tele() == false)&&(j->getDatum() == datum)&&(j->getSport()==sport)) {
+                            for(auto k: felhasznalok) {
+                                if(i->getEdzoId() == k->getId())
+                                    cout << k->getFelhasznaloNev() << " oraja:" << endl;
+                            }
+                            j->oraKiir();
+                            cout << endl;
+                        } else
+                            cout << "Ezen a napon nincs masik " << sport << " ora." << endl;
+                    }
+                }
+                letezikOra = true;
+            }
         }
     }
     if(!letezikOra) {
