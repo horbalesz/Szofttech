@@ -81,7 +81,6 @@ void Felhasznalo::teljesOlvasasa(Levelezes *levelek, vector<Felhasznalo *> &felh
     bool letezik = false;
     for(auto i : levelek->getLevelek()) {
         if(i->getCimzettID()==id || i->getKuldoID()==id) {
-            i->setOlvasott();
             int kuldoID = i->getKuldoID(), cimzettID = i-> getCimzettID();
             string cimzett, kuldo;
             for(auto j :felhasznalok) {
