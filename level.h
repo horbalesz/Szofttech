@@ -12,7 +12,6 @@ class Level
 {
     int kuldoID;
     int cimzettID;
-    int levelID;
     string uzenet;
     bool olvasott;
 public:

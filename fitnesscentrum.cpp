@@ -16,7 +16,7 @@ vector<Felhasznalo *> &FitnessCentrum::getFelhasznalok() {
     return felhasznalok;
 }
 
-Levelezes *FitnessCentrum::getLevelezes() {
+Levelezes *FitnessCentrum::getTeljesLevelezes() {
     return teljesLevelezes;
 }
 
@@ -75,7 +75,7 @@ void FitnessCentrum::bejelentkezes() {
             tipus = "tag";
             break;
         }
-        cout << "Bejelentkezes " << talaltFelhasznalo->getId() << " azonositoju " + tipus + "kent." << endl;
+        cout << "Bejelentkezes " << talaltFelhasznalo->getFelhasznaloNev() << " felhasznalonevu " + tipus + "kent." << endl;
         cout << "Adja meg a jelszavat!" << endl;
         cin >> jelszo;
         if(talaltFelhasznalo->getJelszo()==jelszo) {

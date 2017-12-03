@@ -24,6 +24,21 @@ vector<int> Ora::getFeliratkozottak() const
     return feliratkozottak;
 }
 
+int Ora::getLetszam()
+{
+    return maxLetszam - feliratkozottak.size();
+}
+
+string Ora::getSport() const
+{
+    return sport;
+}
+
+int Ora::getDatum() const
+{
+    return kezdEv*10000+kezdHonap*100+kezdNap;
+}
+
 Ora::Ora(int kezdEv, int kezdHonap, int kezdNap, int kezdOra, int kezdPerc,
          int hossz, int maxLetszam, const string &sport):
     kezdEv(kezdEv),

@@ -1,10 +1,10 @@
 #include "tag.h"
 
-Tag::Tag(int jelszo, string nev):
+Tag::Tag(int jelszo, const string &nev):
     Felhasznalo(jelszo, nev)
 {}
 
-Tag::Tag(int id, int jelszo, string nev):
+Tag::Tag(int id, int jelszo, const string &nev):
     Felhasznalo(id, jelszo, nev)
 {}
 
@@ -38,7 +38,7 @@ void Tag::edzesreFeliratkozas(vector<Orarend*> &edzesek, const vector<Felhasznal
     if(letezikEdzo) {
         for(auto &i : edzesek) {
             if(i->getEdzoId() == edzoId) {
-                i->felirOrara(id);
+                i->felirOrara(id, edzesek, felhasznalok);
             }
         }
     } else {

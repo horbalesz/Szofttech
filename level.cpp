@@ -10,7 +10,6 @@ string Level::getUzenet() const
 Level::Level(int kuldo, int cimzett, const string &p_uzenet):
     kuldoID(kuldo),
     cimzettID(cimzett),
-    levelID(IdBox::getInstance().giveId()),
     uzenet(p_uzenet),
     olvasott(false)
 {}
