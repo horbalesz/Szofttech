@@ -13,6 +13,16 @@ string NapiTevekenyseg::getSport() {
     return sport;
 }
 
+int NapiTevekenyseg::getSportType()
+{
+    if(sport == "pilates")
+        return 0;
+    else if(sport == "aerobic")
+        return 1;
+    else
+        return 2; // kangoo
+}
+
 int NapiTevekenyseg::getIdotartam() {
     return idotartam;
 }

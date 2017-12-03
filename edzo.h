@@ -7,12 +7,12 @@
 class Edzo: public Felhasznalo
 {
 public:
-    Edzo(int jelszo, string nev);
-    Edzo(int id, int jelszo, string nev);
+    Edzo(int jelszo, const string &nev);
+    Edzo(int id, int jelszo, const string &nev);
     void menu();
     void oraHozzaadasa(vector<Orarend *> &orarendek);
     void oraTorlese(vector<Orarend *> &orarendek, Levelezes* levelezesek);
-    void sajatOrarendMegtekintese(vector<Orarend*> &orarendek, const vector<Felhasznalo*> felhasznalok);
+    void sajatOrarendMegtekintese(const vector<Orarend*> &orarendek, const vector<Felhasznalo*> &felhasznalok);
     int getType() const;
 };
 

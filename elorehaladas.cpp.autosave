@@ -65,7 +65,11 @@ void EloreHaladas::osszegez() {
             (*it)->tevekenysegKiir();
             cout << endl;
             osszIdotartam+=(*it)->getIdotartam();
-//            switch((*it)->getSportInt())
+            switch((*it)->getSportType()) {
+            case 0: osszKaloria+=225; break;
+            case 1: osszKaloria+=200; break;
+            case 2: osszKbreak;
+            }
         }
         kezdoSuly = (*(tevekenysegek.begin()))->getSuly();
         jelenlegiSuly = (tevekenysegek.back())->getSuly();

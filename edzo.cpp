@@ -1,10 +1,10 @@
 #include "edzo.h"
 
-Edzo::Edzo(int jelszo, string nev):
+Edzo::Edzo(int jelszo, const string &nev):
     Felhasznalo(jelszo, nev)
 {}
 
-Edzo::Edzo(int id, int jelszo, string nev):
+Edzo::Edzo(int id, int jelszo, const string &nev):
     Felhasznalo(id, jelszo, nev)
 {}
 
@@ -42,7 +42,7 @@ void Edzo::oraTorlese(vector<Orarend*> &orarendek, Levelezes *levelezesek) {
     }
 }
 
-void Edzo::sajatOrarendMegtekintese(vector<Orarend*> &orarendek, const vector<Felhasznalo*> felhasznalok) {
+void Edzo::sajatOrarendMegtekintese(const vector<Orarend *> &orarendek, const vector<Felhasznalo *> &felhasznalok) {
     bool letezik = false;
     for(auto &i : orarendek) {
         if(i->getEdzoId() == id) {

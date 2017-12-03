@@ -9,8 +9,8 @@ protected:
     int id, jelszo;
     string felhasznaloNev;
 public:
-    Felhasznalo(int jelszo,string &nev);
-    Felhasznalo(int id, int jelszo, string &nev);
+    Felhasznalo(int jelszo, const string &nev);
+    Felhasznalo(int id, int jelszo, const string &nev);
     virtual ~Felhasznalo();
     virtual void menu() =0;
     virtual int getType() const = 0;
