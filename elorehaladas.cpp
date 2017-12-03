@@ -15,6 +15,13 @@ EloreHaladas::EloreHaladas(int p_tagID, int p_cel):
     cel(p_cel)
 {}
 
+EloreHaladas::~EloreHaladas()
+{
+    for(auto &i: tevekenysegek) {
+        delete i;
+    }
+}
+
 int EloreHaladas::getTagID() {
     return tagID;
 }

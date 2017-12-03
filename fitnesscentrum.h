@@ -23,6 +23,7 @@ class FitnessCentrum
     Levelezes* teljesLevelezes;
 public:
     FitnessCentrum();
+    ~FitnessCentrum();
     vector<Orarend*>& getTeljesOrarend();
     vector<EloreHaladas*>& getTeljesSportnaplo();
     vector<Felhasznalo*>& getFelhasznalok();

@@ -4,6 +4,18 @@ FitnessCentrum::FitnessCentrum():
     bejelentkezettFelhasznalo(0)
 {}
 
+FitnessCentrum::~FitnessCentrum()
+{
+    delete bejelentkezettFelhasznalo;
+    delete teljesLevelezes;
+    for(auto &i: teljesOrarend)
+        delete i;
+    for(auto &i: teljesSportnaplo)
+        delete i;
+    for(auto &i: felhasznalok)
+        delete i;
+}
+
 vector<Orarend *> &FitnessCentrum::getTeljesOrarend() {
     return teljesOrarend;
 }

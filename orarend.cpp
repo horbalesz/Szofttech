@@ -9,6 +9,12 @@ Orarend::Orarend(int edzoId):
     edzoId(edzoId)
 {}
 
+Orarend::~Orarend()
+{
+    for(auto &i: ora)
+        delete i;
+}
+
 void Orarend::orarendKiir(const vector<Felhasznalo*> felhasznalok) {
     string edzoNev;
     for(auto i : felhasznalok) {

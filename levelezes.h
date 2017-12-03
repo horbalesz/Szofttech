@@ -13,6 +13,7 @@ class Levelezes
     vector<Level*> levelek;
 public:
     Levelezes();
+    ~Levelezes();
     void levelHozzaadasa(Level* hozzaadando);
     vector<Level*> getLevelek();
 };
