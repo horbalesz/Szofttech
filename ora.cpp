@@ -78,8 +78,17 @@ int Ora::getId() const {
 void Ora::oraKiir() {
     cout << "Ora adatai: " << endl;
     cout << "OraID: " << id << endl;
-    cout << "Idopont: " << kezdEv << ". " << kezdHonap << ". " << kezdNap << "." << endl;
-    cout << "Kezdes: " << kezdOra << ":" << kezdPerc << endl;
+    cout << "Idopont: " << kezdEv << ". ";
+    if(kezdHonap < 10)
+        cout << "0";
+    cout << kezdHonap << ". ";
+    if(kezdNap < 10)
+        cout << "0";
+    cout << kezdNap << "." << endl;
+    cout << "Kezdes: " << kezdOra << ":";
+    if(kezdPerc < 10)
+        cout << "0";
+    cout << kezdPerc << endl;
     cout << "Sport: " + sport << endl;
     cout << "Hossza: " << hossz << " perc" << endl;
     cout << "Szabad helyek szama: " << maxLetszam-feliratkozottak.size() << endl;
