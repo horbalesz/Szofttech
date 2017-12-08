@@ -6,7 +6,6 @@ FitnessCentrum::FitnessCentrum():
 
 FitnessCentrum::~FitnessCentrum()
 {
-    delete bejelentkezettFelhasznalo;
     delete teljesLevelezes;
     for(auto &i: teljesOrarend)
         delete i;
@@ -125,7 +124,7 @@ void FitnessCentrum::regisztracio() {
     felhasznalok.push_back(new Tag(jelszo, felhaszNev));
     bejelentkezettFelhasznalo = felhasznalok.back();
     teljesSportnaplo.push_back(new EloreHaladas(bejelentkezettFelhasznalo->getId(),suly));
-    cout << endl << endl << "Az on felhasznaloneve: " << bejelentkezettFelhasznalo->getFelhasznaloNev() << endl;
+    cout << endl << "Az on felhasznaloneve: " << bejelentkezettFelhasznalo->getFelhasznaloNev() << endl;
     cout << "Az on jelszava: " << bejelentkezettFelhasznalo->getJelszo() << endl;
 }
 

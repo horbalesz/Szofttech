@@ -92,6 +92,7 @@ void Orarend::felirOrara(int id, const vector<Orarend*> &edzesek, vector<Felhasz
                 letezikOra = true;
             } else {
                 cout << "Ez az ora mar betelt, de probalja meg a kovetkezoket:" << endl << endl;
+                bool vanHasonlo=false;
                 for(auto i: edzesek) {
                     vector<Ora*> orak = i->getOra();
                     for(auto j: orak) {
@@ -102,9 +103,12 @@ void Orarend::felirOrara(int id, const vector<Orarend*> &edzesek, vector<Felhasz
                             }
                             j->oraKiir();
                             cout << endl;
-                        } else
-                            cout << "Ezen a napon nincs masik " << sport << " ora." << endl;
+                            vanHasonlo=true;
+                        }
                     }
+                }
+                if(!vanHasonlo) {
+                    cout << "Ezen a napon nincs masik " << sport << " ora." << endl;
                 }
                 letezikOra = true;
             }

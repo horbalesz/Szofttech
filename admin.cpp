@@ -38,7 +38,7 @@ void Admin::edzoRegisztralasa(vector<Felhasznalo*> &felhasznalok, vector<Orarend
         felhasznalok.push_back(uj);
         orarendek.push_back(new Orarend(uj->getId()));
         cout << "Uj edzo sikeresen regisztralva: " << endl;
-        cout << "Azonosito: " << uj->getId() << endl;
+        cout << "Felhasznalonev: " << uj->getFelhasznaloNev() << endl;
         cout << "Jelszo: " << uj->getJelszo() << endl;
     } else {
         cout << "Mar letezik ilyen nevu felhasznalo!" << endl;
